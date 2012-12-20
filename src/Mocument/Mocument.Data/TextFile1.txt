@@ -1,0 +1,11 @@
+﻿   Mocument will only record traffic using textual mime types:
+   text/*
+   application/javascript
+   application/x-javascript
+   application/ecmascript
+   application/json
+   application/xhtml+xml
+   application/xml
+   image/svg+xml
+
+   
