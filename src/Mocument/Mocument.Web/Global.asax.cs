@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -12,7 +13,10 @@ namespace Mocument.Web
 
         void Application_Start(object sender, EventArgs e)
         {
-            // Code that runs on application startup
+            if(!Directory.Exists(Server.MapPath("app_data")))
+            {
+                Directory.CreateDirectory(Server.MapPath("app_data"));
+            }
 
         }
 
