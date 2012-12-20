@@ -14,8 +14,7 @@
         <div class="header">
             <div class="title">
                 <h1>
-                    My ASP.NET Application
-                </h1>
+                    mocument.it</h1>
             </div>
             <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
