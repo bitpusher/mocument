@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mocument.Server.Tests", "Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mocument.Data.Tests", "Mocument.Data.Tests\Mocument.Data.Tests.csproj", "{8C8DEB02-0A76-43BF-A936-C35AE703BBBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mocument.Web", "Mocument.Web\Mocument.Web.csproj", "{D86F98C2-6A6A-49FC-B4BF-FEB165929D60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,16 @@ Global
 		{8C8DEB02-0A76-43BF-A936-C35AE703BBBF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8C8DEB02-0A76-43BF-A936-C35AE703BBBF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8C8DEB02-0A76-43BF-A936-C35AE703BBBF}.Release|x86.ActiveCfg = Release|Any CPU
+		{D86F98C2-6A6A-49FC-B4BF-FEB165929D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86F98C2-6A6A-49FC-B4BF-FEB165929D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86F98C2-6A6A-49FC-B4BF-FEB165929D60}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D86F98C2-6A6A-49FC-B4BF-FEB165929D60}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D86F98C2-6A6A-49FC-B4BF-FEB165929D60}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D86F98C2-6A6A-49FC-B4BF-FEB165929D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86F98C2-6A6A-49FC-B4BF-FEB165929D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D86F98C2-6A6A-49FC-B4BF-FEB165929D60}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D86F98C2-6A6A-49FC-B4BF-FEB165929D60}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D86F98C2-6A6A-49FC-B4BF-FEB165929D60}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
