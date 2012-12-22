@@ -1,191 +1,83 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Data;
+using System.Data.Objects;
 using System.Linq;
-using System.Runtime.Caching;
-using Fiddler;
-using Mocument.Data.Transcoders;
-using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace Mocument.Data
 {
     public class TapeLibrary
     {
-        private static readonly object LockTarget = new object();
-
-        private readonly ObjectCache _cache = MemoryCache.Default;
-
-        public TapeLibrary(string path)
+        private  TapesEntities _context;
+        public TapeLibrary()
         {
-            Path = path;
-            Tapes = new List<Tape>();
+            _context=new TapesEntities();
+            _context.Connection.Open();
         }
-
-        [JsonProperty]
-        protected List<Tape> Tapes { get; set; }
-
-        [JsonIgnore]
-        public string Path { get; private set; }
-
+        public void ResetContext()
+        {
+            _context.Dispose();
+            _context = new TapesEntities();
+            _context.Connection.Open();
+        }
+        static readonly Func<TapesEntities, string, Tape> SelectById =
+            CompiledQuery.Compile<TapesEntities, string, Tape>((ctx, id) =>
+                (from e in ctx.Tapes where e.Id == id select e).FirstOrDefault());
+        
         public int Count
         {
-            get { return Tapes.Count; }
-        }
-
-        public void Load()
-        {
-            if (File.Exists(Path))
+            get
             {
-                string json = File.ReadAllText(Path);
-                var c = JsonConvert.DeserializeObject<List<Tape>>(json);
-                Tapes = c;
+                return _context.Tapes.Count();
             }
         }
 
-        public void Save()
+        public void Delete(string tapeId)
         {
-            lock (LockTarget)
+            
+            Tape tape = _context.Tapes.FirstOrDefault(t => t.Id == tapeId);
+            _context.Tapes.DeleteObject(tape);
+            _context.SaveChanges();
+        }
+
+        public void AddOrUpdate(Tape tape)
+        {
+            
+            string id = tape.Id;
+            if (_context.Tapes.Any(e => e.Id == id))
             {
-                string json = JsonConvert.SerializeObject(Tapes, Formatting.Indented);
-                File.WriteAllText(Path, json);
+                _context.Tapes.Attach(tape);
+                _context.ObjectStateManager.ChangeObjectState(tape, EntityState.Modified);
+            }
+            else
+            {
+                _context.Tapes.AddObject(tape);
+            }
+
+
+            _context.SaveChanges();
+        }
+
+        public List<Tape> Select()
+        {
+            using (var context = new TapesEntities())
+            {
+                // context.Tapes.MergeOption = MergeOption.NoTracking;
+                return context.Tapes.ToList();
             }
         }
 
-        public Tape GetOrAddTape(string tapeId, string description = "", bool openForRecording = false, string allowedIpAddress = "")
+        public Tape Select(string tapeId)
         {
-            lock (LockTarget)
-            {
-                Tape tape2 = FindTape(tapeId);
-                if (tape2 == null)
-                {
-                    tape2 = new Tape { Id = tapeId, Description = description, AllowedIpAddress = allowedIpAddress, OpenForRecording = openForRecording };
-                    Tapes.Add(tape2);
-                    Save();
-                }
-                return tape2;
-            }
-        }
-        public Tape FindTape(string tapeId)
-        {
-            lock (LockTarget)
-            {
-
-                return Tapes.FirstOrDefault(t => string.Compare(tapeId, t.Id, StringComparison.OrdinalIgnoreCase) == 0);
-
-            }
-        }
-        public Tape GetTape(string tapeId)
-        {
-            lock (LockTarget)
-            {
-                Tape tape = FindTape(tapeId);
-                if (tape == null )
-                {
-                    throw new Exception("Tape not found: " + tapeId);
-                }
-                return tape;
-            }
+            
+            return SelectById.Invoke(_context, tapeId);
         }
 
-        public void DeleteTape(string tapeId)
+        public List<Tape> SelectMatches(string pattern)
         {
-            lock (LockTarget)
-            {
-                Tape tape = GetTape(tapeId);
-                SetTapeContents(tapeId, null);
-                Tapes.Remove(tape);
-            }
-        }
-
-
-
-        public List<Session> GetTapeContents(string tapeId)
-        {
-            lock (LockTarget)
-            {
-                Tape tape = GetTape(tapeId);
-                if (tape == null)
-                {
-                    throw new Exception("Tape does not exist: " + tapeId);
-                }
-
-                var results = new List<Session>();
-                if (_cache.Contains(tapeId))
-                {
-                    results = (List<Session>)_cache[tapeId];
-                }
-                else
-                {
-                    string path = GetTapeContentsPath(tapeId);
-                    if (File.Exists(path))
-                    {
-                        results = ImportTape(path);
-                    }
-                    _cache[tapeId] = results;
-                }
-                return results;
-            }
-        }
-
-        public void SetTapeContents(string tapeId, List<Session> contents)
-        {
-            lock (LockTarget)
-            {
-                Tape tape = GetTape(tapeId);
-                if (tape == null)
-                {
-                    throw new Exception("Tape does not exist: " + tapeId);
-                }
-
-
-                // #TODO: find the Concurrent sync and lock the collectionId
-
-                string path = GetTapeContentsPath(tapeId);
-
-                if (contents == null)
-                {
-                    File.Delete(path);
-                    if (_cache.Contains(tapeId))
-                    {
-                        _cache.Remove(tapeId);
-                    }
-                }
-                else
-                {
-                    ExportTape(contents, path);
-                    if (_cache.Contains(tapeId))
-                    {
-                        _cache[tapeId] = contents;
-                    }
-                }
-            }
-        }
-
-        private static List<Session> ImportTape(string path)
-        {
-            lock (LockTarget)
-            {
-                return HttpArchiveFormat.ImportSessions(path);
-            }
-        }
-
-        private static void ExportTape(List<Session> contents, string path)
-        {
-            lock (LockTarget)
-            {
-                HttpArchiveFormat.ExportSessions(contents, path);
-            }
-        }
-
-        private string GetTapeContentsPath(string tapeId)
-        {
-            if (string.IsNullOrEmpty(Path))
-            {
-                throw new Exception("Path has not been set on library");
-            }
-            // ReSharper disable AssignNullToNotNullAttribute
-            return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Path), tapeId + ".har");
-            // ReSharper restore AssignNullToNotNullAttribute
+            
+            return _context.Tapes.Where(t => Regex.IsMatch(t.Id, pattern, RegexOptions.IgnoreCase)).ToList();
         }
     }
 }

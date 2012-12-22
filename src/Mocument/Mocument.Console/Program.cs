@@ -10,12 +10,12 @@ namespace Mocument.Console
 
         private static void Main(string[] args)
         {
-            string libraryPath = args[0];
-            int port = int.Parse(args[1]);
+            
+            int port = int.Parse(args[0]);
 
             System.Console.CancelKeyPress += ConsoleCancelKeyPress;
 
-            _server = new MocumentServer(libraryPath, port);
+            _server = new MocumentServer(port);
             _server.Start();
             System.Console.WriteLine("Hit CTRL+C to end session.");
 

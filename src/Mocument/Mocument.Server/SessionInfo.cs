@@ -3,18 +3,22 @@ using Fiddler;
 
 namespace Mocument.Server
 {
-    
+
     public class SessionInfo
     {
-        
+
         public SessionInfo(Session oS)
         {
-        
-            if (oS.hostname.StartsWith("record.", StringComparison.OrdinalIgnoreCase))
+            if (oS.PathAndQuery.StartsWith("/refresh/", StringComparison.OrdinalIgnoreCase) && (oS.clientIP == "::1" || oS.clientIP == "127.0.0.1"))
+            {
+                Type = SessionType.Refresh;
+                return;
+            }
+            if (oS.PathAndQuery.StartsWith("/record/", StringComparison.OrdinalIgnoreCase))
             {
                 Type = SessionType.Record;
             }
-            if (oS.hostname.StartsWith("playback.", StringComparison.OrdinalIgnoreCase))
+            if (oS.PathAndQuery.StartsWith("/play/", StringComparison.OrdinalIgnoreCase))
             {
                 Type = SessionType.Playback;
             }
@@ -30,10 +34,10 @@ namespace Mocument.Server
                         break;
                     default:
                         string[] pathSegments = path.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-                        UserId = pathSegments[0];
-                        TapeId = pathSegments[1];
-                        Host = pathSegments[2];
-                        PathAndQuery = "/" + string.Join("/", pathSegments, 3, pathSegments.Length - 3);
+                        UserId = pathSegments[1];
+                        TapeId = pathSegments[2];
+                        Host = pathSegments[3];
+                        PathAndQuery = "/" + string.Join("/", pathSegments, 4, pathSegments.Length - 4);
                         break;
                 }
             }

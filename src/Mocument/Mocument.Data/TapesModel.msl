@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TapesModelStoreContainer" CdmEntityContainer="TapesEntities">
+    <EntitySetMapping Name="Tapes">
+      <EntityTypeMapping TypeName="TapesModel.Tape">
+        <MappingFragment StoreEntitySet="Tapes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OpenForRecording" ColumnName="OpenForRecording" />
+          <ScalarProperty Name="AllowedIpAddress" ColumnName="AllowedIpAddress" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

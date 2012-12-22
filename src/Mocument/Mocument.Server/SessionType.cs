@@ -5,6 +5,7 @@ namespace Mocument.Server
         None,
         Record,
         Playback,
-        InvalidMimeType
+        InvalidMimeType,
+        Refresh
     }
 }

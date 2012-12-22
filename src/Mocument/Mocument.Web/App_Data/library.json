@@ -1,8 +1,14 @@
 [
   {
     "Id": "sky.ciapisession",
-    "Description": "",
+    "Description": "d",
+    "OpenForRecording": true,
+    "AllowedIpAddress": null
+  },
+  {
+    "Id": "sky.foo",
+    "Description": null,
     "OpenForRecording": false,
-    "AllowedIpAddress": ""
+    "AllowedIpAddress": "1.1.1.1"
   }
 ]
