@@ -9,6 +9,16 @@
     "Id": "sky.foo",
     "Description": null,
     "OpenForRecording": false,
+<<<<<<< origin/broken
     "AllowedIpAddress": "1.1.1.1"
+=======
+    "AllowedIpAddress": ""
+  },
+  {
+    "Id": "sky.ciapisession1",
+    "Description": "",
+    "OpenForRecording": false,
+    "AllowedIpAddress": ""
+>>>>>>> local
   }
 ]
