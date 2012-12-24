@@ -293,7 +293,7 @@ namespace Mocument.Data.Transcoders
                     {
                         continue;
                     }
-                    var hashtable3 = new Hashtable
+                    var entryObj = new Hashtable
                                          {
                                              {"startedDateTime", session.Timers.ClientBeginRequest.ToString("o")},
                                              {"request", GetRequest(session)},
@@ -301,20 +301,24 @@ namespace Mocument.Data.Transcoders
                                              {"cache", new Hashtable()}
                                          };
                     Hashtable htTimers = GetTimings(session.Timers);
-                    hashtable3.Add("time", GetTotalTime(htTimers));
-                    hashtable3.Add("timings", htTimers);
+                    entryObj.Add("time", GetTotalTime(htTimers));
+                    entryObj.Add("timings", htTimers);
+
+                    //*************************
+
+
                     string str = session["ui-comments"];
                     if (!string.IsNullOrEmpty(str))
                     {
-                        hashtable3.Add("comment", session["ui-comments"]);
+                        entryObj.Add("comment", session["ui-comments"]);
                     }
 
                     if (!string.IsNullOrEmpty(str) && !session.isFlagSet(SessionFlags.SentToGateway))
                     {
-                        hashtable3.Add("serverIPAddress", session.m_hostIP);
+                        entryObj.Add("serverIPAddress", session.m_hostIP);
                     }
-                    hashtable3.Add("connection", session.clientPort.ToString(CultureInfo.InvariantCulture));
-                    list.Add(hashtable3);
+                    entryObj.Add("connection", session.clientPort.ToString(CultureInfo.InvariantCulture));
+                    list.Add(entryObj);
                 }
                 catch (Exception exception)
                 {

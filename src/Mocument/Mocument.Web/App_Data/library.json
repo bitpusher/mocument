@@ -4,5 +4,11 @@
     "Description": "",
     "OpenForRecording": false,
     "AllowedIpAddress": ""
+  },
+  {
+    "Id": "sky.ciapisession1",
+    "Description": "",
+    "OpenForRecording": false,
+    "AllowedIpAddress": ""
   }
 ]

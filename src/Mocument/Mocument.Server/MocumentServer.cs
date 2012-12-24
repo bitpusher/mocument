@@ -192,7 +192,6 @@ namespace Mocument.Server
             _library.Load();
             FiddlerApplication.BeforeRequest += ProcessBeginRequest;
 
-
             FiddlerApplication.AfterSessionComplete += ProcessEndResponse;
             CONFIG.IgnoreServerCertErrors = true;
             FiddlerApplication.Prefs.SetBoolPref("fiddler.network.streaming.ForgetStreamedData", false);

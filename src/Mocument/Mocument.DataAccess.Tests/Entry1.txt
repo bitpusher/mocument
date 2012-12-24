@@ -1,0 +1,105 @@
+﻿{
+  "pageref": null,
+  "startedDateTime": "2012-12-23T19:07:07.1741105-07:00",
+  "time": 91,
+  "request": {
+    "host": "httpbin.org",
+    "path": "/post",
+    "method": "POST",
+    "url": "http://httpbin.org/post?foo=1",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [
+      {
+        "name": "Host",
+        "value": "httpbin.org",
+        "comment": null
+      },
+      {
+        "name": "Content-Length",
+        "value": "5",
+        "comment": null
+      },
+      {
+        "name": "Expect",
+        "value": "100-continue",
+        "comment": null
+      }
+    ],
+    "queryString": [
+      {
+        "name": "foo",
+        "value": "1",
+        "comment": null
+      }
+    ],
+    "postData": {
+      "mimeType": "",
+      "params": null,
+      "text": "bar=1",
+      "comment": null
+    },
+    "headersSize": 89,
+    "bodySize": 5,
+    "comment": null
+  },
+  "response": {
+    "status": 200,
+    "statusText": "OK",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json",
+        "comment": null
+      },
+      {
+        "name": "Date",
+        "value": "Mon, 24 Dec 2012 02:07:07 GMT",
+        "comment": null
+      },
+      {
+        "name": "Server",
+        "value": "gunicorn/0.16.1",
+        "comment": null
+      },
+      {
+        "name": "Content-Length",
+        "value": "273",
+        "comment": null
+      },
+      {
+        "name": "Connection",
+        "value": "keep-alive",
+        "comment": null
+      }
+    ],
+    "content": {
+      "size": 273,
+      "compression": 0,
+      "mimeType": "application/json",
+      "text": "{\n  \"origin\": \"10.44.59.135\",\n  \"files\": {},\n  \"form\": {},\n  \"url\": \"http://httpbin.org/post?foo=1\",\n  \"args\": {\n    \"foo\": \"1\"\n  },\n  \"headers\": {\n    \"Content-Length\": \"5\",\n    \"Connection\": \"keep-alive\",\n    \"Host\": \"httpbin.org\"\n  },\n  \"json\": null,\n  \"data\": \"bar=1\"\n}",
+      "encoding": null,
+      "comment": null
+    },
+    "redirectURL": "",
+    "headersSize": 158,
+    "bodySize": 273,
+    "comment": null
+  },
+  "cache": null,
+  "timings": {
+    "blocked": -1,
+    "dns": 0,
+    "connect": 0,
+    "send": 1,
+    "wait": 91,
+    "receive": 0,
+    "ssl": 0,
+    "comment": null
+  },
+  "serverIPAddress": null,
+  "connection": "29728",
+  "comment": null
+}
