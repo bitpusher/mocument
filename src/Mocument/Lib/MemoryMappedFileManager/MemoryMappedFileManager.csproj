@@ -52,6 +52,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dev.snk" />
+    <None Include="license.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="description.html" />
+    <Content Include="description\Brand.css" />
+    <Content Include="description\Galleries.css" />
+    <Content Include="description\iframedescription.css" />
+    <Content Include="description\Layout.css" />
+    <Content Include="description\MemoryMappedFile.PNG" />
+    <Content Include="description\offline.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

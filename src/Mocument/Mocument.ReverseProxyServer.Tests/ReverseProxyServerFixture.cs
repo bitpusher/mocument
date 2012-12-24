@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using Mocument.DataAccess;
 using NUnit.Framework;
-
+using Mocument.IPC;
 namespace Mocument.ReverseProxyServer.Tests
 {
     [TestFixture]
@@ -23,14 +23,14 @@ namespace Mocument.ReverseProxyServer.Tests
             Server server = null;
             try
             {
-                server = new Server(contextName, port, false);
+                server = new Server(contextName, port, false,"Mocument_IPC",IpcChannelSide.Low);
                 server.Start();
                 const string postData = "bar=foo";
                 var recordAddress = "http://localhost:" + port + "/record/sky/httpbin/httpbin.org/post?foo=bar";
                 string response1 = new WebClient().UploadString(recordAddress, postData);
 
                 // introduce some delay to let the server store the tape. this is not contrived....
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
 
                 var tapes = Context.ListTapes();
                 Assert.AreEqual(1, tapes.Count);
@@ -40,7 +40,7 @@ namespace Mocument.ReverseProxyServer.Tests
                 // #TODO: we need to add something unobtrusive to the replayed response to make it clear it was canned
                 var playAddress = "http://localhost:" + port + "/play/sky/httpbin/httpbin.org/post?foo=bar";
                 string response2 = new WebClient().UploadString(playAddress, postData);
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Assert.AreEqual(response1, response2);
 
             }

@@ -1,7 +1,9 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Threading;
 using Fiddler;
 using Mocument.DataAccess;
+using Mocument.IPC;
 using Mocument.Model;
 using Mocument.Transcoders;
 using Salient.HTTPArchiveModel;
@@ -11,20 +13,26 @@ namespace Mocument.ReverseProxyServer
 
     public class Server
     {
-       
+
         private static readonly ConcurrentDictionary<Session, SessionInfo> RecordCache =
             new ConcurrentDictionary<Session, SessionInfo>();
 
         private readonly string _libraryPath;
         private readonly int _port;
         private readonly bool _lockDown;
-        public Server(string libraryPath, int port,bool lockDown)
+        public Server(string libraryPath, int port, bool lockDown, string ipcPath, IpcChannelSide ipcChannelSide)
         {
+            var ipc = IpcChannel.Create(ipcPath, ipcChannelSide);
+            ipc.DataReceived += IPCDataReceived;
             _libraryPath = libraryPath;
             _port = port;
             _lockDown = lockDown;
         }
 
+        void IPCDataReceived(object sender, IpcDataRecievedEventArgs e)
+        {
+            Console.WriteLine("IpcCommunicator: {0}", e.Message);
+        }
 
         public void Start()
         {
@@ -121,7 +129,7 @@ namespace Mocument.ReverseProxyServer
 
 
                 // time to find matching session
-                Entry entry = HttpArchiveTranscoder.Export(oS,true);
+                Entry entry = HttpArchiveTranscoder.Export(oS, true);
 
                 Entry matchedEntry = Context.MatchEntry(tapeId, entry);
 

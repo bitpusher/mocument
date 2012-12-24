@@ -110,7 +110,7 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\ContextDataSource.cs" />
-    <Compile Include="Code\IpcFactory.cs" />
+    <Compile Include="Code\ProxySettings.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -11,11 +11,7 @@ namespace Mocument.WebUI
     {
         private void Application_Start(object sender, EventArgs e)
         {
-            string ipcPath = WebConfigurationManager.AppSettings["ipcPath"];
-            string ipcChannel = WebConfigurationManager.AppSettings["ipcChannel"];
-
-            IpcFactory.ChannelSide = (IpcChannelSide)Enum.Parse(typeof(IpcChannelSide), ipcChannel, true);
-            IpcFactory.Path = ipcPath;
+            
 
             string libraryPath = WebConfigurationManager.AppSettings["contextPath"];
             DataAccess.Context.Open(libraryPath);
@@ -28,10 +24,13 @@ namespace Mocument.WebUI
 
 
 
+            string ipcPath = WebConfigurationManager.AppSettings["ipcPath"];
+            string ipcChannel = WebConfigurationManager.AppSettings["ipcChannel"];
 
-            var ipc = IpcFactory.Create();
-            ipc.SendMessage("WebUI Started");
-
+            IpcCommunicator.ChannelSide = (IpcChannelSide)Enum.Parse(typeof(IpcChannelSide), ipcChannel, true);
+            IpcCommunicator.Path = ipcPath;
+            IpcCommunicator.SendMessage("WebUI Started");
+            
         }
 
         private void Application_End(object sender, EventArgs e)

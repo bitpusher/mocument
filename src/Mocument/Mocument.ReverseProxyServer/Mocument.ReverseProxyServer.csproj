@@ -64,6 +64,10 @@
       <Project>{C99297F5-2298-42BA-861D-B59FFFA82639}</Project>
       <Name>Mocument.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mocument.IPC\Mocument.IPC.csproj">
+      <Project>{2768904D-0050-4B6C-ACE8-6BE6FF035658}</Project>
+      <Name>Mocument.IPC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mocument.Model\Mocument.Model.csproj">
       <Project>{061D1E96-587D-4E2F-9F26-756755FA5135}</Project>
       <Name>Mocument.Model</Name>

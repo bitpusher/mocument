@@ -11,19 +11,16 @@ namespace Mocument.ConsoleProxy
 
         private static void Main(string[] args)
         {
-            // #TODO: i am going to put the IPC in here so i don't have to refactor all of the tests right this moment but it needs to go in the server
+            // #TODO: i am going to put the IpcCommunicator in here so i don't have to refactor all of the tests right this moment but it needs to go in the server
 
             string ipcPath = ConfigurationManager.AppSettings["ipcPath"];
             string ipcChannel = ConfigurationManager.AppSettings["ipcChannel"];
-
-            var ipc = IpcChannel.Create(ipcPath, (IpcChannelSide)Enum.Parse(typeof(IpcChannelSide), ipcChannel, true));
-            ipc.DataReceived += new EventHandler<IpcDataRecievedEventArgs>(IPCDataReceived);
             int port = int.Parse(ConfigurationManager.AppSettings["proxyPort"]);
             string libraryPath = ConfigurationManager.AppSettings["contextPath"];
             bool lockDown = bool.Parse(ConfigurationManager.AppSettings["proxyLockDown"]);
 
 
-            _server = new Server(libraryPath, port, lockDown);
+            _server = new Server(libraryPath, port, lockDown, ipcPath, (IpcChannelSide)Enum.Parse(typeof(IpcChannelSide), ipcChannel, true));
             Console.CancelKeyPress += ConsoleCancelKeyPress;
             _server.Start();
             Console.WriteLine("Hit CTRL+C to end session.");
@@ -54,10 +51,7 @@ namespace Mocument.ConsoleProxy
             } while (!bDone);
         }
 
-        static void IPCDataReceived(object sender, IpcDataRecievedEventArgs e)
-        {
-            Console.WriteLine("IPC: {0}", e.Message);
-        }
+
 
 
         private static void ConsoleCancelKeyPress(object sender, ConsoleCancelEventArgs e)
