@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<ArrayOfXmlUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <XmlUser>
+    <UserKey>c674d5f4-aa71-4829-81d5-3bb3a8227504</UserKey>
+    <UserName>sky2</UserName>
+    <Password>public</Password>
+    <PasswordSalt />
+    <Email>sky.sanders@gmail.com</Email>
+    <PasswordQuestion />
+    <PasswordAnswer />
+    <CreationDate>2012-12-23T22:43:29.4086519-07:00</CreationDate>
+    <LastActivityDate>2012-12-23T22:43:42.1863827-07:00</LastActivityDate>
+    <LastLoginDate>2012-12-23T22:43:42.1863827-07:00</LastLoginDate>
+    <LastPasswordChangeDate>2012-12-23T22:43:29.4086519-07:00</LastPasswordChangeDate>
+    <LastLockoutDate>9999-12-31T23:59:59.9999999</LastLockoutDate>
+    <IsApproved>false</IsApproved>
+    <IsLockedOut>false</IsLockedOut>
+    <FailedPasswordAttemptCount>0</FailedPasswordAttemptCount>
+  </XmlUser>
+  <XmlUser>
+    <UserKey>2952b756-aff8-4c8f-bd5d-3c293fa7905d</UserKey>
+    <UserName>sky</UserName>
+    <Password>public</Password>
+    <PasswordSalt />
+    <Email>sky.sanders@gmail.com</Email>
+    <PasswordQuestion />
+    <PasswordAnswer />
+    <CreationDate>2012-12-23T23:20:21.6211832-07:00</CreationDate>
+    <LastActivityDate>2012-12-31T03:25:18.3804064-07:00</LastActivityDate>
+    <LastLoginDate>2012-12-30T20:05:24.7576728-07:00</LastLoginDate>
+    <LastPasswordChangeDate>2012-12-23T23:20:21.6211832-07:00</LastPasswordChangeDate>
+    <LastLockoutDate>9999-12-31T23:59:59.9999999</LastLockoutDate>
+    <IsApproved>true</IsApproved>
+    <IsLockedOut>false</IsLockedOut>
+    <FailedPasswordAttemptCount>0</FailedPasswordAttemptCount>
+  </XmlUser>
+  <XmlUser>
+    <UserKey>2266c21d-3f1f-43cb-ad58-847e1dcc312f</UserKey>
+    <UserName>user</UserName>
+    <Password>user</Password>
+    <PasswordSalt />
+    <Email>user@user.com</Email>
+    <PasswordQuestion />
+    <PasswordAnswer />
+    <CreationDate>2012-12-23T23:20:33.5098632-07:00</CreationDate>
+    <LastActivityDate>2012-12-23T23:20:33.5428651-07:00</LastActivityDate>
+    <LastLoginDate>2012-12-23T23:20:33.5428651-07:00</LastLoginDate>
+    <LastPasswordChangeDate>2012-12-23T23:20:33.5098632-07:00</LastPasswordChangeDate>
+    <LastLockoutDate>9999-12-31T23:59:59.9999999</LastLockoutDate>
+    <IsApproved>true</IsApproved>
+    <IsLockedOut>false</IsLockedOut>
+    <FailedPasswordAttemptCount>0</FailedPasswordAttemptCount>
+  </XmlUser>
+</ArrayOfXmlUser>
