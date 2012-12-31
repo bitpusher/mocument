@@ -65,10 +65,6 @@
       <Project>{C4E3839D-7607-4B2D-B261-69170E3B66D8}</Project>
       <Name>Salient.HTTPArchiveModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mocument.DataAccess\Mocument.DataAccess.csproj">
-      <Project>{C99297F5-2298-42BA-861D-B59FFFA82639}</Project>
-      <Name>Mocument.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mocument.IPC\Mocument.IPC.csproj">
       <Project>{2768904D-0050-4B6C-ACE8-6BE6FF035658}</Project>
       <Name>Mocument.IPC</Name>

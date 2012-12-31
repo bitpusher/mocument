@@ -23,7 +23,7 @@ namespace Mocument.ReverseProxyServer.Tests
             Server server = null;
             try
             {
-                server = new Server(contextName, port, false,"Mocument_IPC",IpcChannelSide.Low);
+                server = new Server(contextName, port, false);
                 server.Start();
                 const string postData = "bar=foo";
                 var recordAddress = "http://localhost:" + port + "/record/sky/httpbin/httpbin.org/post?foo=bar";
@@ -59,6 +59,6 @@ namespace Mocument.ReverseProxyServer.Tests
 
         }
 
-        
+
     }
 }

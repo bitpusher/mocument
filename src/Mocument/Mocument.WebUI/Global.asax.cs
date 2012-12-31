@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Threading;
+
 using System.Web;
 using System.Web.Configuration;
-using Mocument.IPC;
 using Mocument.WebUI.Code;
 
 namespace Mocument.WebUI
@@ -11,31 +10,22 @@ namespace Mocument.WebUI
     {
         private void Application_Start(object sender, EventArgs e)
         {
-            
 
-            string libraryPath = WebConfigurationManager.AppSettings["contextPath"];
-            DataAccess.Context.Open(libraryPath);
 
-            int port = int.Parse(WebConfigurationManager.AppSettings["proxyPort"]);
-            ProxySettings.Port = port;
-            bool lockDown = bool.Parse(WebConfigurationManager.AppSettings["proxyLockDown"]);
-            ProxySettings.LockDown = lockDown;
+            //int port = int.Parse(WebConfigurationManager.AppSettings["proxyPort"]);
+            //ProxySettings.Port = port;
+            //bool lockDown = bool.Parse(WebConfigurationManager.AppSettings["proxySecured"]);
+            //ProxySettings.LockDown = lockDown;
 
 
 
 
-            string ipcPath = WebConfigurationManager.AppSettings["ipcPath"];
-            string ipcChannel = WebConfigurationManager.AppSettings["ipcChannel"];
 
-            IpcCommunicator.ChannelSide = (IpcChannelSide)Enum.Parse(typeof(IpcChannelSide), ipcChannel, true);
-            IpcCommunicator.Path = ipcPath;
-            IpcCommunicator.SendMessage("WebUI Started");
-            
         }
 
         private void Application_End(object sender, EventArgs e)
         {
-            DataAccess.Context.Close();
+
         }
 
         private void Application_Error(object sender, EventArgs e)

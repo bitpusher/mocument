@@ -2,16 +2,61 @@
     CodeBehind="Default.aspx.cs" Inherits="Mocument.WebUI._Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+        <style type="text/css">
+        .style1
+        {
+            font-size: xx-small;
+        }
+    </style>
+      <style type="text/css">
+        
+        .NameCell {
+            background-color: #f5f5f5;
+            border-right: 1px solid black;
+            font-variant: small-caps;
+            font-weight: bold;
+            margin: 5px;
+            padding: 5px;
+            text-align: right;
+            vertical-align: top;
+            width: 5%;
+        }
+
+        .HeaderCell {
+            background-color: #f5f5f5;
+            font-variant: small-caps;
+            font-weight: bold;
+            margin: 5px;
+            padding: 5px;
+            text-align: center;
+            vertical-align: bottom;
+            width: 5%;
+        }
+
+        .subtable {
+            border: 1px solid black;
+            font-size: smaller;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
         Welcome to Mocument.it!
     </h2>
+        <p>
+        I will fulfill all of your fantasies .... 
+    </p>
+    <p class="style1">
+        ... that is, if all you fantasize about is easy recording, playback 
+        and documentation of http traffic.
+       
+    </p>
     <br />
     Avaliable Tapes<br />
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
         AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" 
-        DataSourceID="ObjectDataSource1" ForeColor="#333333" GridLines="None">
+        DataSourceID="ObjectDataSource1" ForeColor="#333333" GridLines="None" 
+        onselectedindexchanged="GridView1_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
@@ -20,6 +65,9 @@
                 SortExpression="Description" />
         </Columns>
         <EditRowStyle BackColor="#999999" />
+        <EmptyDataTemplate>
+            Tape library is empty! Time to record.
+        </EmptyDataTemplate>
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
@@ -30,10 +78,10 @@
         <SortedDescendingCellStyle BackColor="#FFFDF8" />
         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
     </asp:GridView>
-    <br />
-    <br />
-    <br />
-    <br />
+     
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Details" ScrollBars="Auto">
+    </asp:Panel>
+     
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
         SelectMethod="ListTapes" TypeName="Mocument.WebUI.Code.ContextDataSource">
     </asp:ObjectDataSource>

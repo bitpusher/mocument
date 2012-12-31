@@ -66,10 +66,6 @@
       <Project>{C4E3839D-7607-4B2D-B261-69170E3B66D8}</Project>
       <Name>Salient.HTTPArchiveModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mocument.DataAccess\Mocument.DataAccess.csproj">
-      <Project>{C99297F5-2298-42BA-861D-B59FFFA82639}</Project>
-      <Name>Mocument.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mocument.Model\Mocument.Model.csproj">
       <Project>{061D1E96-587D-4E2F-9F26-756755FA5135}</Project>
       <Name>Mocument.Model</Name>

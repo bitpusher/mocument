@@ -26,8 +26,8 @@
     <PasswordQuestion />
     <PasswordAnswer />
     <CreationDate>2012-12-23T23:20:21.6211832-07:00</CreationDate>
-    <LastActivityDate>2012-12-23T23:20:21.6771864-07:00</LastActivityDate>
-    <LastLoginDate>2012-12-23T23:20:21.6771864-07:00</LastLoginDate>
+    <LastActivityDate>2012-12-31T00:11:04.703418-07:00</LastActivityDate>
+    <LastLoginDate>2012-12-30T20:05:24.7576728-07:00</LastLoginDate>
     <LastPasswordChangeDate>2012-12-23T23:20:21.6211832-07:00</LastPasswordChangeDate>
     <LastLockoutDate>9999-12-31T23:59:59.9999999</LastLockoutDate>
     <IsApproved>true</IsApproved>
@@ -40,6 +40,8 @@
     <Password>user</Password>
     <PasswordSalt />
     <Email>user@user.com</Email>
+    <PasswordQuestion />
+    <PasswordAnswer />
     <CreationDate>2012-12-23T23:20:33.5098632-07:00</CreationDate>
     <LastActivityDate>2012-12-23T23:20:33.5428651-07:00</LastActivityDate>
     <LastLoginDate>2012-12-23T23:20:33.5428651-07:00</LastLoginDate>

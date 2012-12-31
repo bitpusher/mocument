@@ -5,30 +5,7 @@ using MemoryMappedFileManager;
 namespace Mocument.IPC
 {
   
-    public static class IpcCommunicator
-    {
-        private static IpcChannel _channel;
-        public static void SendMessage(string message)
-        {
-            if (_channel == null)
-            {
-                if (string.IsNullOrEmpty(Path))
-                {
-                    throw new Exception("IpcCommunicator Path is empty");
-                }
-                if (ChannelSide == IpcChannelSide.None)
-                {
-                    throw new Exception("IpcCommunicator ChannelSide is NONE");
-                }
-                _channel = IpcChannel.Create(Path, ChannelSide);
-            }
-            _channel.SendMessage(message);
-        }
-        public static string Path { get; set; }
-        public static IpcChannelSide ChannelSide { get; set; }
-
-
-    }
+    
     public abstract class IpcChannel : IDisposable
     {
         #region Factory

@@ -1,42 +1,34 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Threading;
 using Fiddler;
-using Mocument.DataAccess;
-using Mocument.IPC;
+using Mocument.DataAccess.SQLite;
 using Mocument.Model;
 using Mocument.Transcoders;
 using Salient.HTTPArchiveModel;
 
 namespace Mocument.ReverseProxyServer
 {
-
     public class Server
     {
-
         private static readonly ConcurrentDictionary<Session, SessionInfo> RecordCache =
             new ConcurrentDictionary<Session, SessionInfo>();
 
-        private readonly string _libraryPath;
+        private readonly string _connectionStringName;
+        private readonly bool _secured;
         private readonly int _port;
-        private readonly bool _lockDown;
-        public Server(string libraryPath, int port, bool lockDown, string ipcPath, IpcChannelSide ipcChannelSide)
+        private readonly Store _store;
+
+        public Server(string connectionStringName, int port, bool secured)
         {
-            var ipc = IpcChannel.Create(ipcPath, ipcChannelSide);
-            ipc.DataReceived += IPCDataReceived;
-            _libraryPath = libraryPath;
+            _connectionStringName = connectionStringName;
             _port = port;
-            _lockDown = lockDown;
+            _secured = secured;
+            _store = new Store(_connectionStringName);
         }
 
-        void IPCDataReceived(object sender, IpcDataRecievedEventArgs e)
-        {
-            Console.WriteLine("IpcCommunicator: {0}", e.Message);
-        }
 
         public void Start()
         {
-            Context.Open(_libraryPath);
 
             FiddlerApplication.BeforeRequest += ProcessBeginRequest;
 
@@ -71,19 +63,23 @@ namespace Mocument.ReverseProxyServer
                     SessionInfo info;
                     RecordCache.TryRemove(oS, out info);
                     string tapeId = info.UserId + "." + info.TapeId;
-                    Tape tape = Context.GetTapeById(tapeId, false);
+                    Tape tape = _store.Select(tapeId);
                     if (tape == null)
                     {
                         tape = new Tape
                                    {
                                        Id = tapeId
                                    };
+                        _store.Insert(tape);
                     }
                     Entry entry = HttpArchiveTranscoder.Export(oS);
-                    tape.log.entries.Add(entry);
-                    Context.SaveTape(tape);
-
-                    var t2 = Context.GetTapeById(tape.Id);
+                    var matched =_store.MatchEntry(tapeId, entry);
+                    if (matched==null)
+                    {
+                        tape.log.entries.Add(entry);
+                        _store.Update(tape);    
+                    }
+                    
                 }
             }
         }
@@ -118,7 +114,7 @@ namespace Mocument.ReverseProxyServer
             try
             {
                 string tapeId = info.UserId + "." + info.TapeId;
-                Tape tape = Context.GetTapeById(tapeId);
+                Tape tape = _store.Select(tapeId);
                 if (tape == null)
                 {
                     oS.utilCreateResponseAndBypassServer();
@@ -131,7 +127,7 @@ namespace Mocument.ReverseProxyServer
                 // time to find matching session
                 Entry entry = HttpArchiveTranscoder.Export(oS, true);
 
-                Entry matchedEntry = Context.MatchEntry(tapeId, entry);
+                Entry matchedEntry = _store.MatchEntry(tapeId, entry);
 
 
                 if (matchedEntry == null)
@@ -144,8 +140,17 @@ namespace Mocument.ReverseProxyServer
                 {
                     Session matchedSession = HttpArchiveTranscoder.Import(matchedEntry);
                     oS.utilCreateResponseAndBypassServer();
-                    oS.responseBodyBytes = matchedSession.responseBodyBytes;
-                    oS.oResponse.headers = (HTTPResponseHeaders)matchedSession.oResponse.headers.Clone();
+                    // #TODO: figger me out
+                    // odd, fiddler is compressing respose when it is not compressed from server
+                    //oS.responseBodyBytes = matchedSession.responseBodyBytes;
+                   
+                    oS.utilSetResponseBody(matchedEntry.response.content.text);
+                    oS.oResponse.headers = (HTTPResponseHeaders) matchedSession.oResponse.headers.Clone();
+
+                    // #TODO: figger me out
+                    oS.oResponse.headers["Content-Length"] = matchedEntry.response.content.text.Length.ToString();
+                    // #TODO: figger me out
+                    oS.oResponse.headers.Remove("Content-Encoding");
                 }
             }
             catch
@@ -162,10 +167,9 @@ namespace Mocument.ReverseProxyServer
         {
             try
             {
-                if (_lockDown)
+                if (_secured)
                 {
-
-                    var tape = Context.GetTapeById(info.UserId + "." + info.TapeId);
+                    Tape tape = _store.Select(info.UserId + "." + info.TapeId);
                     if (tape == null)
                     {
                         oS.utilCreateResponseAndBypassServer();
@@ -188,7 +192,6 @@ namespace Mocument.ReverseProxyServer
                         oS.utilSetResponseBody("IP " + GetClientIp(oS) + " not allowed to record.");
                         return;
                     }
-
                 }
                 oS.bBufferResponse = true;
                 RecordCache.TryAdd(oS, info);

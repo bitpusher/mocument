@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A00352D7-2EB1-40F7-9978-FE258AFD70AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mocument.DataAccess.File</RootNamespace>
+    <AssemblyName>Mocument.DataAccess.File</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>dev.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DefaultEntryComparer.cs" />
+    <Compile Include="EntryCompareResult.cs" />
+    <Compile Include="FileAccess.cs" />
+    <Compile Include="IEntryComparer.cs" />
+    <Compile Include="IPC\IPCMessage.cs" />
+    <Compile Include="IPC\IPCMessageType.cs" />
+    <Compile Include="IPC\IpcChannel.cs" />
+    <Compile Include="IPC\IpcChannelHigh.cs" />
+    <Compile Include="IPC\IpcChannelLow.cs" />
+    <Compile Include="IPC\IpcChannelSide.cs" />
+    <Compile Include="IPC\IpcDataRecievedEventArgs.cs" />
+    <Compile Include="Store.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoreClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib\MemoryMappedFileManager\MemoryMappedFileManager.csproj">
+      <Project>{67562D75-378E-48C4-83F2-1F05A51B8B55}</Project>
+      <Name>MemoryMappedFileManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib\Salient.HTTPArchiveModel\Salient.HTTPArchiveModel.csproj">
+      <Project>{C4E3839D-7607-4B2D-B261-69170E3B66D8}</Project>
+      <Name>Salient.HTTPArchiveModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mocument.Model\Mocument.Model.csproj">
+      <Project>{061D1E96-587D-4E2F-9F26-756755FA5135}</Project>
+      <Name>Mocument.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dev.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -13,5 +13,20 @@ namespace Mocument.WebUI
         {
 
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = GridView1.SelectedDataKey.Value as string;
+
+            var ds = new Code.ContextDataSource();
+            var entries = ds.ListEntries(id);
+
+            foreach (var entry in entries)
+            {
+                Panel1.Controls.Add(new LiteralControl("<hr/>"));
+                var entryTable = Code.EntryRenderer.BuildEntryTable(entry);
+                Panel1.Controls.Add(entryTable);
+            }
+        }
     }
 }
