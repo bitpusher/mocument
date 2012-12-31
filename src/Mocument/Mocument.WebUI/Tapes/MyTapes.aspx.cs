@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Mocument.Model;
 
 namespace Mocument.WebUI.Tapes
 {
@@ -32,6 +33,12 @@ namespace Mocument.WebUI.Tapes
                 var entryTable = Code.EntryRenderer.BuildEntryTable(entry);
                 Panel1.Controls.Add(entryTable);
             }
+        }
+
+        protected void ObjectDataSource1_Updating(object sender, ObjectDataSourceMethodEventArgs e)
+        {
+            Tape t = (Tape) e.InputParameters["tape"];
+            t.log = null; // round trip from asp.net does not deserialize so it is new. let's null it so DAL doesn't update it
         }
     }
 }

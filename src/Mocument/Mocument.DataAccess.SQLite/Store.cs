@@ -106,13 +106,27 @@ namespace Mocument.DataAccess.SQLite
                 using (DbCommand command = connection.CreateCommand())
                 {
                     connection.Open();
-                    command.CommandText =
-                        "UPDATE TAPES SET  Description=@Description,Comment=@Comment,OpenForRecording=@OpenForRecording,AllowedIpAddress=@AllowedIpAddress,JSON=@JSON  WHERE Id=@Id";
+                    if (tape.log != null)
+                    {
+                        command.CommandText =
+                            "UPDATE TAPES SET  Description=@Description,Comment=@Comment,OpenForRecording=@OpenForRecording,AllowedIpAddress=@AllowedIpAddress,JSON=@JSON  WHERE Id=@Id";
+                        
+                    }
+                    else
+                    {
+                        command.CommandText =
+                            "UPDATE TAPES SET  Description=@Description,Comment=@Comment,OpenForRecording=@OpenForRecording,AllowedIpAddress=@AllowedIpAddress WHERE Id=@Id";
+                        
+                    }
                     SetParameter(command, "Description", tape.Description);
                     SetParameter(command, "Comment", tape.Comment);
                     SetParameter(command, "OpenForRecording", tape.OpenForRecording);
                     SetParameter(command, "AllowedIpAddress", tape.AllowedIpAddress);
-                    SetParameter(command, "JSON", JsonConvert.SerializeObject(tape, Formatting.Indented));
+                    if (tape.log!=null)
+                    {
+                        SetParameter(command, "JSON", JsonConvert.SerializeObject(tape, Formatting.Indented));
+                        
+                    }
                     SetParameter(command, "Id", tape.Id);
                     command.ExecuteNonQuery();
                 }

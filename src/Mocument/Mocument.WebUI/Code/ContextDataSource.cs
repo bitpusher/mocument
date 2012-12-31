@@ -34,7 +34,8 @@ namespace Mocument.WebUI.Code
 
         public Tape Select(string id)
         {
-            return _store.Select(id);
+            Tape value = _store.Select(id);
+            return value;
         }
 
         public List<Tape> ListTapes()

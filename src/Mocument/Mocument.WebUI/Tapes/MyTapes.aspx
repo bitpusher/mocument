@@ -66,7 +66,8 @@
     <p>
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="ListTapesForUser"
                               TypeName="Mocument.WebUI.Code.ContextDataSource" DataObjectTypeName="Mocument.Model.Tape"
-                              DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
+                              DeleteMethod="Delete" InsertMethod="Insert" 
+            UpdateMethod="Update" onupdating="ObjectDataSource1_Updating">
         </asp:ObjectDataSource>
     </p>
 </asp:Content>
