@@ -14,11 +14,11 @@ namespace Mocument.ConsoleProxy
             // #TODO: i am going to put the IpcCommunicator in here so i don't have to refactor all of the tests right this moment but it needs to go in the server
 
             int port = int.Parse(ConfigurationManager.AppSettings["proxyPort"]);
-            
+
             bool secured = bool.Parse(ConfigurationManager.AppSettings["proxySecured"]);
 
-
-            _server = new Server("mocument", port, secured);
+            var store = new DataAccess.SQLite.SQLiteStore("mocument");
+            _server = new Server(port, secured, store);
             Console.CancelKeyPress += ConsoleCancelKeyPress;
             _server.Start();
             Console.WriteLine("Hit CTRL+C to end session.");

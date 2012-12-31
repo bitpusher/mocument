@@ -18,6 +18,17 @@ namespace Mocument.ReverseProxyServer
             {
                 Type = SessionType.Playback;
             }
+      
+            if (oS.PathAndQuery.StartsWith("/export/", StringComparison.OrdinalIgnoreCase))
+            {
+                Type = SessionType.Export;
+                string[] pathSegments = oS.PathAndQuery.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+                UserId = pathSegments[1];
+                TapeId = pathSegments[2];
+                       
+                return;
+            }
+
             if (Type != SessionType.None)
             {
                 string path = oS.PathAndQuery;

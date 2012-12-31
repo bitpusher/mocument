@@ -1,9 +1,10 @@
 ﻿using System.Collections.Concurrent;
 using System.Threading;
 using Fiddler;
-using Mocument.DataAccess.SQLite;
+using Mocument.DataAccess;
 using Mocument.Model;
 using Mocument.Transcoders;
+using Newtonsoft.Json;
 using Salient.HTTPArchiveModel;
 
 namespace Mocument.ReverseProxyServer
@@ -13,23 +14,21 @@ namespace Mocument.ReverseProxyServer
         private static readonly ConcurrentDictionary<Session, SessionInfo> RecordCache =
             new ConcurrentDictionary<Session, SessionInfo>();
 
-        private readonly string _connectionStringName;
-        private readonly bool _secured;
-        private readonly int _port;
-        private readonly Store _store;
 
-        public Server(string connectionStringName, int port, bool secured)
+        private readonly int _port;
+        private readonly bool _secured;
+        private readonly IStore _store;
+
+        public Server(int port, bool secured, IStore dataStore)
         {
-            _connectionStringName = connectionStringName;
             _port = port;
             _secured = secured;
-            _store = new Store(_connectionStringName);
+            _store = dataStore;
         }
 
 
         public void Start()
         {
-
             FiddlerApplication.BeforeRequest += ProcessBeginRequest;
 
             FiddlerApplication.AfterSessionComplete += ProcessEndResponse;
@@ -73,13 +72,12 @@ namespace Mocument.ReverseProxyServer
                         _store.Insert(tape);
                     }
                     Entry entry = HttpArchiveTranscoder.Export(oS);
-                    var matched =_store.MatchEntry(tapeId, entry);
-                    if (matched==null)
+                    Entry matched = _store.MatchEntry(tapeId, entry);
+                    if (matched == null)
                     {
                         tape.log.entries.Add(entry);
-                        _store.Update(tape);    
+                        _store.Update(tape);
                     }
-                    
                 }
             }
         }
@@ -106,6 +104,24 @@ namespace Mocument.ReverseProxyServer
                     oS.utilSetResponseBody("Invalid MIME type");
 
                     break;
+                case SessionType.Export:
+                    oS.utilCreateResponseAndBypassServer();
+                    oS.responseCode = 200;
+                    // #TODO: set content-type etc
+                    Tape tape = _store.Select(info.UserId + "." + info.TapeId);
+                    if (tape == null)
+                    {
+                        oS.utilCreateResponseAndBypassServer();
+                        oS.responseCode = 404;
+                        oS.utilSetResponseBody("Tape not found");
+                        return;
+                    }
+                    oS.oResponse.headers["Content-Type"] = "text/json";
+                    oS.utilSetResponseBody(JsonConvert.SerializeObject(tape, Formatting.Indented));
+
+
+                    break;
+           
             }
         }
 
@@ -143,9 +159,9 @@ namespace Mocument.ReverseProxyServer
                     // #TODO: figger me out
                     // odd, fiddler is compressing respose when it is not compressed from server
                     //oS.responseBodyBytes = matchedSession.responseBodyBytes;
-                   
+
                     oS.utilSetResponseBody(matchedEntry.response.content.text);
-                    oS.oResponse.headers = (HTTPResponseHeaders) matchedSession.oResponse.headers.Clone();
+                    oS.oResponse.headers = (HTTPResponseHeaders)matchedSession.oResponse.headers.Clone();
 
                     // #TODO: figger me out
                     oS.oResponse.headers["Content-Length"] = matchedEntry.response.content.text.Length.ToString();

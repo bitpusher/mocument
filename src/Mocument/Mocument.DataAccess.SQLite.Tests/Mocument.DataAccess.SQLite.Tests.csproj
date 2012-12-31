@@ -62,6 +62,10 @@
       <Project>{12616535-B6E2-4C8D-B5E6-EF3945E5FD8F}</Project>
       <Name>Mocument.DataAccess.SQLite</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mocument.DataAccess\Mocument.DataAccess.csproj">
+      <Project>{8E4A6BEE-AF75-48E4-AB16-B4CC16E53A2E}</Project>
+      <Name>Mocument.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mocument.Model\Mocument.Model.csproj">
       <Project>{061D1E96-587D-4E2F-9F26-756755FA5135}</Project>
       <Name>Mocument.Model</Name>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 using Salient.HTTPArchiveModel;
 
-namespace Mocument.DataAccess.SQLite
+namespace Mocument.DataAccess
 {
     public class DefaultEntryComparer : IEntryComparer
     {

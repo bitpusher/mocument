@@ -15,7 +15,7 @@ namespace Mocument.DataAccess.SQLite.Tests
         public void noid()
         {
             File.Delete("mocument");
-            var s = new Store("mocument");
+            var s = new SQLiteStore("mocument");
             s.ClearDatabase();
             var x = s.List();
             Assert.AreEqual(0, x.Count);

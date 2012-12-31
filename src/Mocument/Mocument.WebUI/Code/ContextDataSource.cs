@@ -8,13 +8,13 @@ namespace Mocument.WebUI.Code
 {
     public class ContextDataSource
     {
-        private readonly Store _store;
+        private readonly SQLiteStore _store;
         private readonly MembershipUser _user;
 
         public ContextDataSource()
         {
             _user = Membership.GetUser();
-            _store = new Store("mocument");
+            _store = new SQLiteStore("mocument");
         }
 
         public void Update(Tape tape)

@@ -45,7 +45,7 @@ namespace Mocument.WebUI.Tapes
                                AllowedIpAddress = IpTextBox.Text,
                                OpenForRecording = LockedCheckBox.Checked
                            };
-            var store = new Store("mocument");
+            var store = new SQLiteStore("mocument");
             store.Insert(tape);
             Response.Redirect("~/tapes/mytapes.aspx");
         }

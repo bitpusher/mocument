@@ -1,7 +1,7 @@
 using System;
 using Salient.HTTPArchiveModel;
 
-namespace Mocument.DataAccess.SQLite
+namespace Mocument.DataAccess
 {
     [Serializable]
     public class EntryCompareResult

@@ -6,7 +6,9 @@ namespace Mocument.ReverseProxyServer
         None,
         Record,
         Playback,
-        Profile
+        Profile,
+     
+        Export
         
     }
 }

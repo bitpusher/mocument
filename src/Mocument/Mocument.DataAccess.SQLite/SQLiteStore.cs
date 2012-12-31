@@ -10,11 +10,11 @@ using Salient.HTTPArchiveModel;
 
 namespace Mocument.DataAccess.SQLite
 {
-    public class Store
+    public class SQLiteStore : IStore
     {
         private readonly ConnectionStringSettings _connectionStringSettings;
 
-        public Store(string connectionStringName)
+        public SQLiteStore(string connectionStringName)
         {
             _connectionStringSettings = ConfigurationManager.ConnectionStrings[connectionStringName];
             EnsureDatabase();
@@ -226,6 +226,23 @@ namespace Mocument.DataAccess.SQLite
                            where result.Match != null
                            select result.Match)
                 .FirstOrDefault();
+        }
+
+        public void FromJson(string json)
+        {
+            var list = JsonConvert.DeserializeObject<List<Tape>>(json);
+            ClearDatabase();
+            foreach (var tape in list)
+            {
+                Insert(tape);
+            }
+        }
+
+        public string ToJson()
+        {
+            var list = List();
+            var json = JsonConvert.SerializeObject(list);
+            return json;
         }
     }
 }
