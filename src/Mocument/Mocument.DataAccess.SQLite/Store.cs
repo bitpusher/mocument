@@ -101,32 +101,34 @@ namespace Mocument.DataAccess.SQLite
 
         public void Update(Tape tape)
         {
+            // there is a bug in the web admin that i am having trouble finding
+            // so some hacks are needed here
+
             using (DbConnection connection = CreateConnection())
             {
                 using (DbCommand command = connection.CreateCommand())
                 {
                     connection.Open();
-                    if (tape.log != null)
+                    if (tape.log == null)
                     {
-                        command.CommandText =
-                            "UPDATE TAPES SET  Description=@Description,Comment=@Comment,OpenForRecording=@OpenForRecording,AllowedIpAddress=@AllowedIpAddress,JSON=@JSON  WHERE Id=@Id";
-                        
+                        // updating only meta from webui - 
+                        var t = Select(tape.Id);
+                        t.AllowedIpAddress = tape.AllowedIpAddress;
+                        t.Comment = tape.Comment;
+                        t.Description = tape.Description;
+                        t.OpenForRecording = tape.OpenForRecording;
+                        tape = t;
                     }
-                    else
-                    {
-                        command.CommandText =
-                            "UPDATE TAPES SET  Description=@Description,Comment=@Comment,OpenForRecording=@OpenForRecording,AllowedIpAddress=@AllowedIpAddress WHERE Id=@Id";
-                        
-                    }
+
+                    command.CommandText =
+                "UPDATE TAPES SET  Description=@Description,Comment=@Comment,OpenForRecording=@OpenForRecording,AllowedIpAddress=@AllowedIpAddress,JSON=@JSON  WHERE Id=@Id";
+
                     SetParameter(command, "Description", tape.Description);
                     SetParameter(command, "Comment", tape.Comment);
                     SetParameter(command, "OpenForRecording", tape.OpenForRecording);
                     SetParameter(command, "AllowedIpAddress", tape.AllowedIpAddress);
-                    if (tape.log!=null)
-                    {
-                        SetParameter(command, "JSON", JsonConvert.SerializeObject(tape, Formatting.Indented));
-                        
-                    }
+                    SetParameter(command, "JSON", JsonConvert.SerializeObject(tape, Formatting.Indented));
+
                     SetParameter(command, "Id", tape.Id);
                     command.ExecuteNonQuery();
                 }
