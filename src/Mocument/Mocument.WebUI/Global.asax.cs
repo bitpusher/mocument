@@ -12,10 +12,10 @@ namespace Mocument.WebUI
         {
 
 
-            //int port = int.Parse(WebConfigurationManager.AppSettings["proxyPort"]);
-            //ProxySettings.Port = port;
-            //bool lockDown = bool.Parse(WebConfigurationManager.AppSettings["proxySecured"]);
-            //ProxySettings.LockDown = lockDown;
+            int port = int.Parse(WebConfigurationManager.AppSettings["proxyPort"]);
+            ProxySettings.Port = port;
+            bool lockDown = bool.Parse(WebConfigurationManager.AppSettings["proxySecured"]);
+            ProxySettings.LockDown = lockDown;
 
 
 

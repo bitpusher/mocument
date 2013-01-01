@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Mocument.Model;
+using Mocument.WebUI.Code;
 
 namespace Mocument.WebUI.Tapes
 {
@@ -37,8 +38,22 @@ namespace Mocument.WebUI.Tapes
 
         protected void ObjectDataSource1_Updating(object sender, ObjectDataSourceMethodEventArgs e)
         {
-            Tape t = (Tape) e.InputParameters["tape"];
+            Tape t = (Tape)e.InputParameters["tape"];
             t.log = null; // round trip from asp.net does not deserialize so it is new. let's null it so DAL doesn't update it
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var name = e.CommandName;
+            var arg = e.CommandArgument;
+            switch (name.ToLower())
+            {
+                case "export":
+                    Response.Redirect("http://localhost:" + ProxySettings.Port + "/export/" +
+                                      ProxySettings.MungTapeId(arg));
+                    break;
+            }
+
         }
     }
 }

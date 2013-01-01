@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
          CodeBehind="MyTapes.aspx.cs" Inherits="Mocument.WebUI.Tapes.MyTapes" %>
+<%@ Import Namespace="Mocument.WebUI.Code" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
@@ -40,11 +41,34 @@
     <p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
                       DataSourceID="ObjectDataSource1" AllowPaging="True" 
-                      onselectedindexchanged="GridView1_SelectedIndexChanged">
+                      onselectedindexchanged="GridView1_SelectedIndexChanged" 
+            onrowcommand="GridView1_RowCommand">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" 
-                                  ShowSelectButton="True" />
-                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+                <asp:TemplateField ShowHeader="False">
+                    <EditItemTemplate>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" 
+                            CommandName="Update" Text="Update"></asp:LinkButton>
+                        &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" 
+                            CommandName="Cancel" Text="Cancel"></asp:LinkButton>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" 
+                            CommandName="Edit" Text="Edit"></asp:LinkButton>
+                        &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" 
+                            CommandName="Select" Text="Details"></asp:LinkButton> &nbsp;<asp:LinkButton ID="LinkButton4" runat="server" CausesValidation="False" 
+                            CommandName="Export" Text="Export" CommandArgument='<%# Eval("Id") %>'></asp:LinkButton>
+                        &nbsp;<asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="False" 
+                            CommandName="Delete" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this tape?');"></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Id" SortExpression="Id">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# ProxySettings.GetTapeId(Eval("Id")) %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# ProxySettings.GetTapeId(Eval("Id")) %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="Description" HeaderText="Description" 
                                 SortExpression="Description" />
                 <asp:CheckBoxField DataField="OpenForRecording" HeaderText="OpenForRecording" SortExpression="OpenForRecording" />
