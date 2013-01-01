@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Mocument.DataAccess.SQLite;
 using Mocument.Model;
+using Mocument.WebUI.Code;
 
 namespace Mocument.WebUI.Tapes
 {
@@ -26,6 +28,7 @@ namespace Mocument.WebUI.Tapes
 
         protected void Page_Load(object sender, EventArgs e)
         {
+             
             IpTextBox.Text = GetUserIP();
         }
 
@@ -37,10 +40,11 @@ namespace Mocument.WebUI.Tapes
         protected void AddButton_Click(object sender, EventArgs e)
         {
 
-            var user = Membership.GetUser().UserName;
+             
+
             var tape = new Tape()
                            {
-                               Id = user + "." + NameTextBox.Text,
+                               Id = ProxySettings.GetUserId() + "." + NameTextBox.Text,
                                Description = DescTextBox.Text,
                                AllowedIpAddress = IpTextBox.Text,
                                OpenForRecording = LockedCheckBox.Checked
@@ -49,5 +53,7 @@ namespace Mocument.WebUI.Tapes
             store.Insert(tape);
             Response.Redirect("~/tapes/mytapes.aspx");
         }
+
+        
     }
 }

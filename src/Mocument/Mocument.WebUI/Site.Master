@@ -20,7 +20,7 @@
             <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>
+                        [ <a href="~/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>
                         ]
                     </AnonymousTemplate>
                     <LoggedInTemplate>

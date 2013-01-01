@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Mocument.Model;
@@ -13,7 +14,7 @@ namespace Mocument.WebUI.Tapes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void AddButton_Click(object sender, EventArgs e)
@@ -28,12 +29,25 @@ namespace Mocument.WebUI.Tapes
             var ds = new Code.ContextDataSource();
             var entries = ds.ListEntries(id);
 
-            foreach (var entry in entries)
+            var recordurl = ProxySettings.GetProxyUrl() + "record/" + ProxySettings.MungTapeId(id);
+            var playurl = ProxySettings.GetProxyUrl() + "play/" + ProxySettings.MungTapeId(id);
+            RecordLabel.Text = "RECORDING URL: " + recordurl;
+            PlayLabel.Text = "PLAYBACK URL: " + playurl;
+
+            if (entries.Count==0)
             {
-                Panel1.Controls.Add(new LiteralControl("<hr/>"));
-                var entryTable = Code.EntryRenderer.BuildEntryTable(entry);
-                Panel1.Controls.Add(entryTable);
+                Panel1.Controls.Add(new LiteralControl("<hr/><p><b>Tape is empty</b></p>"));
             }
+            else
+            {
+                foreach (var entry in entries)
+                {
+                    Panel1.Controls.Add(new LiteralControl("<hr/>"));
+                    var entryTable = Code.EntryRenderer.BuildEntryTable(entry);
+                    Panel1.Controls.Add(entryTable);
+                }    
+            }
+            
         }
 
         protected void ObjectDataSource1_Updating(object sender, ObjectDataSourceMethodEventArgs e)
@@ -49,13 +63,15 @@ namespace Mocument.WebUI.Tapes
             switch (name.ToLower())
             {
                 case "export":
-         
-                    string requested = Request.Url.Scheme + Uri.SchemeDelimiter + Request.Url.Host + ":" + ProxySettings.Port+ "/export/" +
-                                      ProxySettings.MungTapeId(arg);
+
+
+                    string requested = ProxySettings.GetProxyUrl() + "export/" + ProxySettings.MungTapeId(arg);
                     Response.Redirect(requested);
                     break;
             }
 
         }
+
+
     }
 }

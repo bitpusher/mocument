@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Web;
 using System.Web.Security;
+using Fiddler;
 using Mocument.DataAccess.SQLite;
 using Mocument.Model;
 using Salient.HTTPArchiveModel;
@@ -9,11 +11,11 @@ namespace Mocument.WebUI.Code
     public class ContextDataSource
     {
         private readonly SQLiteStore _store;
-        private readonly MembershipUser _user;
+    
 
         public ContextDataSource()
         {
-            _user = Membership.GetUser();
+           
             _store = new SQLiteStore("mocument");
         }
 
@@ -45,7 +47,8 @@ namespace Mocument.WebUI.Code
 
         public List<Tape> ListTapesForUser()
         {
-            return _store.List(t => t.Id.StartsWith(_user.UserName.ToLower() + "."));
+             
+            return _store.List(t => t.Id.StartsWith(ProxySettings.GetUserId() + "."));
         }
 
         public List<Entry> ListEntries(string id)

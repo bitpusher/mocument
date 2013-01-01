@@ -79,7 +79,10 @@
         </asp:GridView>
     </p>
     <asp:Panel ID="Panel1" runat="server" GroupingText="Details" ScrollBars="Auto">
-    </asp:Panel>
+        <asp:Label ID="RecordLabel" runat="server"></asp:Label>
+        <br />
+        <asp:Label ID="PlayLabel" runat="server"></asp:Label>
+        &nbsp;</asp:Panel>
     <p>
     </p>
     <p>
