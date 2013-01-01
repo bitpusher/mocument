@@ -1,7 +1,9 @@
 ﻿using System;
-
+using System.Diagnostics;
+using System.IO;
 using System.Web;
 using System.Web.Configuration;
+using Fiddler;
 using Mocument.WebUI.Code;
 
 namespace Mocument.WebUI
@@ -10,13 +12,7 @@ namespace Mocument.WebUI
     {
         private void Application_Start(object sender, EventArgs e)
         {
-
-
-            int port = int.Parse(WebConfigurationManager.AppSettings["proxyPort"]);
-            ProxySettings.Port = port;
-            bool lockDown = bool.Parse(WebConfigurationManager.AppSettings["proxySecured"]);
-            ProxySettings.LockDown = lockDown;
-
+    
 
 
 
@@ -25,7 +21,6 @@ namespace Mocument.WebUI
 
         private void Application_End(object sender, EventArgs e)
         {
-
         }
 
         private void Application_Error(object sender, EventArgs e)
@@ -35,7 +30,7 @@ namespace Mocument.WebUI
 
         private void Session_Start(object sender, EventArgs e)
         {
-            // Code that runs when a new session is started
+    
         }
 
         private void Session_End(object sender, EventArgs e)

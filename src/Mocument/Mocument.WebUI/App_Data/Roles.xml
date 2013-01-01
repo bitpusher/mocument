@@ -3,7 +3,7 @@
   <XmlRole>
     <Name>admin</Name>
     <Users>
-      <string>sky</string>
+      <string>admin</string>
     </Users>
   </XmlRole>
 </ArrayOfXmlRole>

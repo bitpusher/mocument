@@ -1,24 +1,40 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Configuration;
-
+using Mocument.DataAccess.SQLite;
 using Mocument.ReverseProxyServer;
 
 namespace Mocument.ConsoleProxy
 {
     internal class Program
     {
+        private static int _port;
+        private static bool _secured;
+        private static SQLiteStore _store;
+
         private static Server _server;
 
-        private static void Main(string[] args)
+        private static void CurrentDomainProcessExit(object sender, EventArgs e)
         {
-            // #TODO: i am going to put the IpcCommunicator in here so i don't have to refactor all of the tests right this moment but it needs to go in the server
+            Console.WriteLine("exit");
+            _server.Stop();
+            _server = null;
+            _store.Dispose();
+        }
 
-            int port = int.Parse(ConfigurationManager.AppSettings["proxyPort"]);
+// ReSharper disable UnusedParameter.Local
+        private static void Main(string[] args)
+// ReSharper restore UnusedParameter.Local
+        {
+            NameValueCollection appSettings = ConfigurationManager.AppSettings;
+            _port = int.Parse(appSettings["proxyPort"]);
+            _secured = bool.Parse(appSettings["proxySecured"]);
+            _store = new SQLiteStore("mocument");
 
-            bool secured = bool.Parse(ConfigurationManager.AppSettings["proxySecured"]);
 
-            var store = new DataAccess.SQLite.SQLiteStore("mocument");
-            _server = new Server(port, secured, store);
+            AppDomain.CurrentDomain.ProcessExit += CurrentDomainProcessExit;
+
+            _server = new Server(_port, _secured, _store);
             Console.CancelKeyPress += ConsoleCancelKeyPress;
             _server.Start();
             Console.WriteLine("Hit CTRL+C to end session.");
@@ -48,8 +64,6 @@ namespace Mocument.ConsoleProxy
                 }
             } while (!bDone);
         }
-
-
 
 
         private static void ConsoleCancelKeyPress(object sender, ConsoleCancelEventArgs e)

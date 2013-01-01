@@ -49,8 +49,10 @@ namespace Mocument.WebUI.Tapes
             switch (name.ToLower())
             {
                 case "export":
-                    Response.Redirect("http://localhost:" + ProxySettings.Port + "/export/" +
-                                      ProxySettings.MungTapeId(arg));
+         
+                    string requested = Request.Url.Scheme + Uri.SchemeDelimiter + Request.Url.Host + ":" + ProxySettings.Port+ "/export/" +
+                                      ProxySettings.MungTapeId(arg);
+                    Response.Redirect(requested);
                     break;
             }
 

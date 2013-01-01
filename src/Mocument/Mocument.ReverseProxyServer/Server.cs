@@ -39,6 +39,7 @@ namespace Mocument.ReverseProxyServer
 
         public void Start()
         {
+           
             FiddlerApplication.BeforeRequest += ProcessBeginRequest;
 
             FiddlerApplication.AfterSessionComplete += ProcessEndResponse;
@@ -52,6 +53,10 @@ namespace Mocument.ReverseProxyServer
 
         public void Stop()
         {
+            FiddlerApplication.BeforeRequest -= ProcessBeginRequest;
+
+            FiddlerApplication.AfterSessionComplete -= ProcessEndResponse;
+            
             FiddlerApplication.Shutdown();
             Thread.Sleep(500);
         }
