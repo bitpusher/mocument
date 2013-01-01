@@ -6,7 +6,10 @@
         Tape Name:
         <asp:TextBox ID="NameTextBox" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-            ControlToValidate="NameTextBox" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            ControlToValidate="NameTextBox" ErrorMessage="RequiredFieldValidator">Field is required</asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+            ControlToValidate="NameTextBox" ErrorMessage="RegularExpressionValidator" 
+            ValidationExpression="^[0-9a-zA-Z_]+$">Only alpha-numeric and underscore are allowed</asp:RegularExpressionValidator>
     </p>
     <p>
         Description:<asp:TextBox ID="DescTextBox" runat="server"></asp:TextBox>

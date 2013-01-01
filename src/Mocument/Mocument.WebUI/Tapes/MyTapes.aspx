@@ -63,7 +63,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Id" SortExpression="Id">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# ProxySettings.GetTapeId(Eval("Id")) %>'></asp:TextBox>
+                        <asp:Label ID="TextBox1" runat="server" Text='<%# ProxySettings.GetTapeId(Eval("Id")) %>'></asp:Label>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# ProxySettings.GetTapeId(Eval("Id")) %>'></asp:Label>
