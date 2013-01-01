@@ -12,6 +12,7 @@ namespace Mocument.DataAccess
         bool ComparePath(Entry potentialMatch, Entry entryToMatch);
         bool CompareQueryString(Entry potentialMatch, Entry entryToMatch);
         bool ComparePostData(Entry potentialMatch, Entry entryToMatch);
+
         /// <summary>
         /// implementor can override to control request parameter comparison.
         /// default is exact match of pair in potentialMatch, ignoring

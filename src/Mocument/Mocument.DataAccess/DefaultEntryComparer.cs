@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Xml.Linq;
 using Salient.HTTPArchiveModel;
 
 namespace Mocument.DataAccess
@@ -15,7 +13,7 @@ namespace Mocument.DataAccess
         {
             Entry matchedEntry = null;
 
-            foreach (var potentialMatch in potentialMatches)
+            foreach (Entry potentialMatch in potentialMatches)
             {
                 if (!CompareMethod(potentialMatch, entryToMatch))
                 {
@@ -53,8 +51,7 @@ namespace Mocument.DataAccess
             }
 
 
-
-            return new EntryCompareResult { Match = matchedEntry };
+            return new EntryCompareResult {Match = matchedEntry};
         }
 
         public virtual bool ComparePostData(Entry potentialMatch, Entry entryToMatch)
@@ -78,10 +75,10 @@ namespace Mocument.DataAccess
             if (!CompareParams(potentialMatch.request.postData.@params, entryToMatch.request.postData.@params))
             {
                 return false;
-
             }
             return true;
         }
+
         public virtual bool CompareMethod(Entry potentialMatch, Entry entryToMatch)
         {
             return potentialMatch.request.method == entryToMatch.request.method;
@@ -89,12 +86,16 @@ namespace Mocument.DataAccess
 
         public virtual bool CompareHost(Entry potentialMatch, Entry entryToMatch)
         {
-            return String.Compare(potentialMatch.request.host, entryToMatch.request.host, StringComparison.OrdinalIgnoreCase) == 0;
+            return
+                String.Compare(potentialMatch.request.host, entryToMatch.request.host,
+                               StringComparison.OrdinalIgnoreCase) == 0;
         }
 
         public virtual bool ComparePath(Entry potentialMatch, Entry entryToMatch)
         {
-            return String.Compare(potentialMatch.request.path, entryToMatch.request.path, StringComparison.OrdinalIgnoreCase) == 0;
+            return
+                String.Compare(potentialMatch.request.path, entryToMatch.request.path,
+                               StringComparison.OrdinalIgnoreCase) == 0;
         }
 
 
@@ -111,7 +112,8 @@ namespace Mocument.DataAccess
         /// <param name="potentialMatch"></param>
         /// <param name="entryToMatch"></param>
         /// <returns></returns>
-        public virtual bool CompareParams(IEnumerable<NameValuePair> potentialMatch, IEnumerable<NameValuePair> entryToMatch)
+        public virtual bool CompareParams(IEnumerable<NameValuePair> potentialMatch,
+                                          IEnumerable<NameValuePair> entryToMatch)
         {
             // exact
             return CompareNameValuePair(potentialMatch, entryToMatch);
@@ -125,7 +127,8 @@ namespace Mocument.DataAccess
         /// <param name="potentialMatch"></param>
         /// <param name="entryToMatch"></param>
         /// <returns></returns>
-        public virtual bool CompareQueryString(IEnumerable<NameValuePair> potentialMatch, IEnumerable<NameValuePair> entryToMatch)
+        public virtual bool CompareQueryString(IEnumerable<NameValuePair> potentialMatch,
+                                               IEnumerable<NameValuePair> entryToMatch)
         {
             // exact
             return CompareNameValuePair(potentialMatch, entryToMatch);
@@ -139,21 +142,20 @@ namespace Mocument.DataAccess
         /// <param name="potentialMatch"></param>
         /// <param name="entryToMatch"></param>
         /// <returns></returns>
-        public virtual bool CompareHeaders(IEnumerable<NameValuePair> potentialMatch, IEnumerable<NameValuePair> entryToMatch)
+        public virtual bool CompareHeaders(IEnumerable<NameValuePair> potentialMatch,
+                                           IEnumerable<NameValuePair> entryToMatch)
         {
-
-
-            var pm = potentialMatch.ToArray();
+            NameValuePair[] pm = potentialMatch.ToArray();
 
             // #FIXME something wierd: persisted requests have Keep-Alive but live do not.
             // maybe this is because they actually made it through the proxy?
             // gotta keep an eye on this.
-            var munged = pm.Where(h => !(h.name == "Connection" && h.value == "Keep-Alive"));
+            IEnumerable<NameValuePair> munged = pm.Where(h => !(h.name == "Connection" && h.value == "Keep-Alive"));
             bool isMatch = CompareNameValuePair(munged, entryToMatch);
             if (!isMatch)
             {
 #if DEBUG
-               // Debugger.Break();
+                // Debugger.Break();
 #endif
             }
             return isMatch;
@@ -167,10 +169,9 @@ namespace Mocument.DataAccess
         /// <param name="potentialMatch"></param>
         /// <param name="entryToMatch"></param>
         /// <returns></returns>
-        public bool CompareNameValuePair(IEnumerable<NameValuePair> potentialMatch, IEnumerable<NameValuePair> entryToMatch)
+        public bool CompareNameValuePair(IEnumerable<NameValuePair> potentialMatch,
+                                         IEnumerable<NameValuePair> entryToMatch)
         {
-
-
             if (null == potentialMatch && null == entryToMatch)
             {
                 return true;

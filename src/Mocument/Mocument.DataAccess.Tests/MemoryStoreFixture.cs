@@ -9,20 +9,19 @@ using NUnit.Framework;
 namespace Mocument.DataAccess.Tests
 {
     [TestFixture]
-    public class JsonStoreFixture
+    public class MemoryStoreFixture
     {
         [Test]
-        public void BasicCRUDPersistent()
+        public void BasicCRUD()
         {
-            var path = Path.GetTempFileName();
+            
 
-            try
-            {
-                var store = new JsonFileStore(path);
+           
+                var store = new MemoryStore();
                 var tape = new Tape()
-                               {
-                                   Id = "foo"
-                               };
+                {
+                    Id = "foo"
+                };
                 store.Insert(tape);
                 var tape2 = store.Select(tape.Id);
                 Assert.IsNotNull(tape2);
@@ -41,11 +40,7 @@ namespace Mocument.DataAccess.Tests
                 store.Delete(tape3.Id);
                 Assert.AreEqual(0, store.List().Count);
 
-            }
-            finally
-            {
-                File.Delete(path);
-            }
+           
         }
     }
 }

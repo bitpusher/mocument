@@ -53,7 +53,8 @@
     <Compile Include="EntryCompareResult.cs" />
     <Compile Include="IEntryComparer.cs" />
     <Compile Include="IStore.cs" />
-    <Compile Include="JsonStore.cs" />
+    <Compile Include="JsonFileStore.cs" />
+    <Compile Include="MemoryStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

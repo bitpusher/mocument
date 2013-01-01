@@ -25,7 +25,17 @@ namespace Mocument.ReverseProxyServer
             _secured = secured;
             _store = dataStore;
         }
-
+        public void ImportTape(string json)
+        {
+            Tape t = JsonConvert.DeserializeObject<Tape>(json);
+            _store.Insert(t);
+        }
+        public string ExportTape(string id)
+        {
+            var t = _store.Select(id);
+            var json = JsonConvert.SerializeObject(t, Formatting.Indented);
+            return json;
+        }
 
         public void Start()
         {

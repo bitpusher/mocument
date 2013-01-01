@@ -244,5 +244,15 @@ namespace Mocument.DataAccess.SQLite
             var json = JsonConvert.SerializeObject(list);
             return json;
         }
+
+        private bool _disposed;
+        public void Dispose()
+        {
+            if (_disposed)
+            {
+                return;
+            }
+            _disposed = true;
+                  }
     }
 }

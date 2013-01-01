@@ -1,6 +1,5 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Mocument.Model;
 using Newtonsoft.Json;
@@ -8,60 +7,36 @@ using Salient.HTTPArchiveModel;
 
 namespace Mocument.DataAccess
 {
-    /// <summary>
-    /// for controlled testing only. not threadsafe and is filebased so extreme load is not advised.
-    /// ABSOLUTELY NOT SUITABLE FOR MULTIPROCESS ACCESS
-    /// </summary>
-    public class JsonStore : IStore
+    public class MemoryStore : IStore
     {
-        private List<Tape> _list;
         private readonly object _lockObject;
-        private readonly string _filepath;
-        public JsonStore(string filepath)
+        private List<Tape> _list;
+
+        public MemoryStore()
         {
             _lockObject = new object();
 
-            _filepath = filepath;
-            EnsureDatabase();
+            _list = new List<Tape>();
         }
+
+        #region IStore Members
+
+        public void Dispose()
+        {
+            //noop
+        }
+
         public void ClearDatabase()
         {
             lock (_lockObject)
             {
-
                 _list.Clear();
-                WriteJson();
-            }
-        }
-        private void ReadJson()
-        {
-            lock (_lockObject)
-            {
-                FromJson(File.ReadAllText(_filepath));
-            }
-        }
-        private void WriteJson()
-        {
-            lock (_lockObject)
-            {
-                File.WriteAllText(_filepath, ToJson());
             }
         }
 
         public void EnsureDatabase()
         {
-            lock (_lockObject)
-            {
-                try
-                {
-                    ReadJson();
-                }
-                catch (Exception)
-                {
-                    _list = new List<Tape>();
-                    WriteJson();
-                }
-            }
+            //nooop
         }
 
         public void Delete(string id)
@@ -78,8 +53,6 @@ namespace Mocument.DataAccess
                     throw new Exception("cannot find key");
                 }
                 _list.Remove(existing);
-
-                WriteJson();
             }
         }
 
@@ -89,7 +62,9 @@ namespace Mocument.DataAccess
             {
                 if (string.IsNullOrEmpty(tape.Id))
                 {
+// ReSharper disable NotResolvedInText
                     throw new ArgumentNullException("id");
+// ReSharper restore NotResolvedInText
                 }
                 Tape existing = _list.FirstOrDefault(t => t.Id == tape.Id);
                 if (existing == null)
@@ -99,8 +74,6 @@ namespace Mocument.DataAccess
                 _list.Remove(existing);
                 // hack in lieu of complicated cloning
                 _list.Add(JsonConvert.DeserializeObject<Tape>(JsonConvert.SerializeObject(tape)));
-
-                WriteJson();
             }
         }
 
@@ -110,7 +83,9 @@ namespace Mocument.DataAccess
             {
                 if (string.IsNullOrEmpty(tape.Id))
                 {
+// ReSharper disable NotResolvedInText
                     throw new ArgumentNullException("id");
+// ReSharper restore NotResolvedInText
                 }
                 if (Select(tape.Id) != null)
                 {
@@ -118,7 +93,6 @@ namespace Mocument.DataAccess
                 }
                 // hack in lieu of complicated cloning
                 _list.Add(JsonConvert.DeserializeObject<Tape>(JsonConvert.SerializeObject(tape)));
-                WriteJson();
             }
         }
 
@@ -130,10 +104,8 @@ namespace Mocument.DataAccess
             }
             lock (_lockObject)
             {
-
                 return List().FirstOrDefault(t => t.Id == id);
             }
-
         }
 
         public List<Tape> List()
@@ -163,19 +135,18 @@ namespace Mocument.DataAccess
                 // provide a default comparer
                 if (comparers == null || comparers.Length == 0)
                 {
-                    comparers = new IEntryComparer[] { new DefaultEntryComparer() };
+                    comparers = new IEntryComparer[] {new DefaultEntryComparer()};
                 }
 
-                var potentialMatches = tape.log.entries;
+                List<Entry> potentialMatches = tape.log.entries;
                 return (
                            from entryComparer in comparers
                            select entryComparer.FindMatch(potentialMatches, entryToMatch)
-                               into result
-                               where result.Match != null
-                               select result.Match)
+                           into result
+                           where result.Match != null
+                           select result.Match)
                     .FirstOrDefault();
             }
-
         }
 
         public void FromJson(string json)
@@ -187,14 +158,14 @@ namespace Mocument.DataAccess
                 {
                     throw new Exception("invalid json");
                 }
-                WriteJson();
             }
-
         }
 
         public string ToJson()
         {
             return JsonConvert.SerializeObject(_list);
         }
+
+        #endregion
     }
 }

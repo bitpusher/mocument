@@ -5,7 +5,7 @@ using Salient.HTTPArchiveModel;
 
 namespace Mocument.DataAccess
 {
-    public interface IStore
+    public interface IStore : IDisposable
     {
         void ClearDatabase();
         void EnsureDatabase();

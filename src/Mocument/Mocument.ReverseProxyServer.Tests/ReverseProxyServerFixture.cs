@@ -13,6 +13,12 @@ namespace Mocument.ReverseProxyServer.Tests
     [TestFixture]
     public class ReverseProxyServerFixture
     {
+        [Test]
+        public void CanLoadAndReplaySession()
+        {
+            var sessionText = File.ReadAllText("CIAPISESSION.txt");
+
+        }
 
         [Test]
         public void ProxyCanRecordAndPlaybackOpen()
@@ -22,7 +28,7 @@ namespace Mocument.ReverseProxyServer.Tests
             int port = 81;
             string contextName = "Mocument";
             var path = Path.GetTempFileName();
-            var store = new JsonStore(path);
+            var store = new JsonFileStore(path);
             Server server = null;
             try
             {
