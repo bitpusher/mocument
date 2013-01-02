@@ -73,7 +73,7 @@ namespace Mocument.DataAccess
                 }
                 _list.Remove(existing);
                 // hack in lieu of complicated cloning
-                _list.Add(JsonConvert.DeserializeObject<Tape>(JsonConvert.SerializeObject(tape)));
+                _list.Add(JsonConvert.DeserializeObject<Tape>(JsonConvert.SerializeObject(tape, Formatting.Indented)));
             }
         }
 
@@ -92,7 +92,7 @@ namespace Mocument.DataAccess
                     throw new Exception("cannot insert duplicate key");
                 }
                 // hack in lieu of complicated cloning
-                _list.Add(JsonConvert.DeserializeObject<Tape>(JsonConvert.SerializeObject(tape)));
+                _list.Add(JsonConvert.DeserializeObject<Tape>(JsonConvert.SerializeObject(tape, Formatting.Indented)));
             }
         }
 
@@ -114,7 +114,7 @@ namespace Mocument.DataAccess
             {
                 // we want to return cloned tapes, not references to those in list.
                 // so short of writing clone logic, just roundtrip the list through json serialization
-                return JsonConvert.DeserializeObject<List<Tape>>(JsonConvert.SerializeObject(_list));
+                return JsonConvert.DeserializeObject<List<Tape>>(JsonConvert.SerializeObject(_list, Formatting.Indented));
             }
         }
 
@@ -163,7 +163,7 @@ namespace Mocument.DataAccess
 
         public string ToJson()
         {
-            return JsonConvert.SerializeObject(_list);
+            return JsonConvert.SerializeObject(_list, Formatting.Indented);
         }
 
         #endregion

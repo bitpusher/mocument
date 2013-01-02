@@ -98,7 +98,7 @@ namespace Mocument.DataAccess
                 }
                 _list.Remove(existing);
                 // hack in lieu of complicated cloning
-                _list.Add(JsonConvert.DeserializeObject<Tape>(JsonConvert.SerializeObject(tape)));
+                _list.Add(JsonConvert.DeserializeObject<Tape>(JsonConvert.SerializeObject(tape,Formatting.Indented)));
 
                 WriteJson();
             }
@@ -117,7 +117,7 @@ namespace Mocument.DataAccess
                     throw new Exception("cannot insert duplicate key");
                 }
                 // hack in lieu of complicated cloning
-                _list.Add(JsonConvert.DeserializeObject<Tape>(JsonConvert.SerializeObject(tape)));
+                _list.Add(JsonConvert.DeserializeObject<Tape>(JsonConvert.SerializeObject(tape,Formatting.Indented)));
                 WriteJson();
             }
         }
@@ -140,7 +140,7 @@ namespace Mocument.DataAccess
             {
                 // we want to return cloned tapes, not references to those in list.
                 // so short of writing clone logic, just roundtrip the list through json serialization
-                return JsonConvert.DeserializeObject<List<Tape>>(JsonConvert.SerializeObject(_list));
+                return JsonConvert.DeserializeObject<List<Tape>>(JsonConvert.SerializeObject(_list, Formatting.Indented));
             }
         }
 
@@ -161,16 +161,16 @@ namespace Mocument.DataAccess
                 // provide a default comparer
                 if (comparers == null || comparers.Length == 0)
                 {
-                    comparers = new IEntryComparer[] {new DefaultEntryComparer()};
+                    comparers = new IEntryComparer[] { new DefaultEntryComparer() };
                 }
 
                 List<Entry> potentialMatches = tape.log.entries;
                 return (
                            from entryComparer in comparers
                            select entryComparer.FindMatch(potentialMatches, entryToMatch)
-                           into result
-                           where result.Match != null
-                           select result.Match)
+                               into result
+                               where result.Match != null
+                               select result.Match)
                     .FirstOrDefault();
             }
         }
@@ -190,7 +190,7 @@ namespace Mocument.DataAccess
 
         public string ToJson()
         {
-            return JsonConvert.SerializeObject(_list);
+            return JsonConvert.SerializeObject(_list, Formatting.Indented);
         }
 
         public void Dispose()

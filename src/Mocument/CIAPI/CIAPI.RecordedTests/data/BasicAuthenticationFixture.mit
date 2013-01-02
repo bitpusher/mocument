@@ -1,0 +1,617 @@
+[
+  {
+    "Id": "CIAPI_INTEGRATION_TEST.CanCreateAndLoginAndLogout",
+    "Description": null,
+    "OpenForRecording": false,
+    "AllowedIpAddress": null,
+    "Comment": null,
+    "log": {
+      "version": null,
+      "creator": null,
+      "browser": null,
+      "pages": null,
+      "entries": [
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:44:27.0040755-07:00",
+          "time": 804,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/session",
+            "method": "POST",
+            "url": "http://ciapi.cityindex.com/tradingapi/session",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "comment": null
+              },
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "163",
+                "comment": null
+              },
+              {
+                "name": "Expect",
+                "value": "100-continue",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              },
+              {
+                "name": "Connection",
+                "value": "Keep-Alive",
+                "comment": null
+              }
+            ],
+            "queryString": [],
+            "postData": {
+              "mimeType": "application/json",
+              "params": null,
+              "text": "{\r\n  \"UserName\": \"XX442153\",\r\n  \"Password\": \"password\",\r\n  \"AppKey\": \"mocument_recording_fixture\",\r\n  \"AppVersion\": \"CIAPI.CS.9.1.0.503\",\r\n  \"AppComments\": null\r\n}",
+              "comment": null
+            },
+            "headersSize": 276,
+            "bodySize": 163,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:44:26 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "111",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 111,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"Session\":\"6da16a6f-de4a-4c6d-865b-1344ca631aed\",\"PasswordChangeRequired\":true,\"AllowedAccountOperator\":false}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 275,
+            "bodySize": 111,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 16,
+            "wait": 448,
+            "receive": 341,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "19261",
+          "comment": null
+        },
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:44:28.6911720-07:00",
+          "time": 200,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/session/deleteSession",
+            "method": "POST",
+            "url": "http://ciapi.cityindex.com/tradingapi/session/deleteSession?userName=XX442153&session=6da16a6f-de4a-4c6d-865b-1344ca631aed",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "comment": null
+              },
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "0",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [
+              {
+                "name": "userName",
+                "value": "XX442153",
+                "comment": null
+              },
+              {
+                "name": "session",
+                "value": "6da16a6f-de4a-4c6d-865b-1344ca631aed",
+                "comment": null
+              }
+            ],
+            "postData": null,
+            "headersSize": 305,
+            "bodySize": 0,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:44:28 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "18",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 18,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"LoggedOut\":true}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 274,
+            "bodySize": 18,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 0,
+            "wait": 201,
+            "receive": 0,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "19261",
+          "comment": null
+        }
+      ],
+      "comment": null
+    }
+  },
+  {
+    "Id": "CIAPI_INTEGRATION_TEST.CanCreateAndThenLoginAndLogout",
+    "Description": null,
+    "OpenForRecording": false,
+    "AllowedIpAddress": null,
+    "Comment": null,
+    "log": {
+      "version": null,
+      "creator": null,
+      "browser": null,
+      "pages": null,
+      "entries": [
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:44:29.5262197-07:00",
+          "time": 529,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/session",
+            "method": "POST",
+            "url": "http://ciapi.cityindex.com/tradingapi/session",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "comment": null
+              },
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "163",
+                "comment": null
+              },
+              {
+                "name": "Expect",
+                "value": "100-continue",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [],
+            "postData": {
+              "mimeType": "application/json",
+              "params": null,
+              "text": "{\r\n  \"UserName\": \"XX442153\",\r\n  \"Password\": \"password\",\r\n  \"AppKey\": \"mocument_recording_fixture\",\r\n  \"AppVersion\": \"CIAPI.CS.9.1.0.503\",\r\n  \"AppComments\": null\r\n}",
+              "comment": null
+            },
+            "headersSize": 252,
+            "bodySize": 163,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:44:28 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "111",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 111,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"Session\":\"aebb2aa5-085c-44a2-9fd3-eea2767e8d3d\",\"PasswordChangeRequired\":true,\"AllowedAccountOperator\":false}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 275,
+            "bodySize": 111,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 0,
+            "wait": 184,
+            "receive": 346,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "19261",
+          "comment": null
+        },
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:44:30.1102531-07:00",
+          "time": 173,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/session/deleteSession",
+            "method": "POST",
+            "url": "http://ciapi.cityindex.com/tradingapi/session/deleteSession?userName=XX442153&session=aebb2aa5-085c-44a2-9fd3-eea2767e8d3d",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "comment": null
+              },
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "0",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [
+              {
+                "name": "userName",
+                "value": "XX442153",
+                "comment": null
+              },
+              {
+                "name": "session",
+                "value": "aebb2aa5-085c-44a2-9fd3-eea2767e8d3d",
+                "comment": null
+              }
+            ],
+            "postData": null,
+            "headersSize": 305,
+            "bodySize": 0,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:44:29 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "18",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 18,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"LoggedOut\":true}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 274,
+            "bodySize": 18,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 0,
+            "wait": 174,
+            "receive": 0,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "19261",
+          "comment": null
+        }
+      ],
+      "comment": null
+    }
+  }
+]

@@ -243,7 +243,7 @@ namespace Mocument.DataAccess.SQLite
         public string ToJson()
         {
             var list = List();
-            var json = JsonConvert.SerializeObject(list);
+            var json = JsonConvert.SerializeObject(list, Formatting.Indented);
             return json;
         }
 

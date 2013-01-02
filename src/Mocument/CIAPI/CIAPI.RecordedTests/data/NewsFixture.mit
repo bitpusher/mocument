@@ -1,0 +1,1460 @@
+[
+  {
+    "Id": "CIAPI_INTEGRATION_TEST.CanListNewsHeadlinesWithSource",
+    "Description": null,
+    "OpenForRecording": false,
+    "AllowedIpAddress": null,
+    "Comment": null,
+    "log": {
+      "version": null,
+      "creator": null,
+      "browser": null,
+      "pages": null,
+      "entries": [
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:52:13.2767447-07:00",
+          "time": 1060,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/session",
+            "method": "POST",
+            "url": "http://ciapi.cityindex.com/tradingapi/session",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "comment": null
+              },
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "163",
+                "comment": null
+              },
+              {
+                "name": "Expect",
+                "value": "100-continue",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              },
+              {
+                "name": "Connection",
+                "value": "Keep-Alive",
+                "comment": null
+              }
+            ],
+            "queryString": [],
+            "postData": {
+              "mimeType": "application/json",
+              "params": null,
+              "text": "{\r\n  \"UserName\": \"XX442153\",\r\n  \"Password\": \"password\",\r\n  \"AppKey\": \"mocument_recording_fixture\",\r\n  \"AppVersion\": \"CIAPI.CS.9.1.0.503\",\r\n  \"AppComments\": null\r\n}",
+              "comment": null
+            },
+            "headersSize": 276,
+            "bodySize": 163,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:52:13 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "111",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 111,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"Session\":\"7fa418ab-a3f1-43ac-931c-9e77d16b3ada\",\"PasswordChangeRequired\":true,\"AllowedAccountOperator\":false}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 275,
+            "bodySize": 111,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 23,
+            "wait": 594,
+            "receive": 444,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "20962",
+          "comment": null
+        },
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:52:15.2628583-07:00",
+          "time": 556,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/news/dj/UK",
+            "method": "GET",
+            "url": "http://ciapi.cityindex.com/tradingapi/news/dj/UK?MaxResults=100",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "UserName",
+                "value": "XX442153",
+                "comment": null
+              },
+              {
+                "name": "Session",
+                "value": "7fa418ab-a3f1-43ac-931c-9e77d16b3ada",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [
+              {
+                "name": "MaxResults",
+                "value": "100",
+                "comment": null
+              }
+            ],
+            "postData": null,
+            "headersSize": 261,
+            "bodySize": 0,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:52:14 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "12263",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 12263,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"Headlines\":[{\"StoryId\":1528593,\"Headline\":\"Russia and Eastern Europe Political, Economic Calendar - Month Ahead\",\"PublishDate\":\"\\/Date(1357127160000)\\/\"},{\"StoryId\":1528592,\"Headline\":\"UK Political, Economic Calendar - Month Ahead -1\",\"PublishDate\":\"\\/Date(1357127160000)\\/\"},{\"StoryId\":1528591,\"Headline\":\"UK Political, Economic Calendar - Month Ahead\",\"PublishDate\":\"\\/Date(1357127160000)\\/\"},{\"StoryId\":1528590,\"Headline\":\"Germany Kicks Off 2013 EMU Bond Sales, Schatz Yield Positive\",\"PublishDate\":\"\\/Date(1357127100000)\\/\"},{\"StoryId\":1528588,\"Headline\":\"FTSE Sails Past 6,000 Amid Relief Over U.S. Deal\",\"PublishDate\":\"\\/Date(1357126800000)\\/\"},{\"StoryId\":1528587,\"Headline\":\"MARKET COMMENT: London Stocks Push Higher on US Deal\",\"PublishDate\":\"\\/Date(1357126260000)\\/\"},{\"StoryId\":1528585,\"Headline\":\"European Stocks, Euro, Commodities Rally As Fiscal Cliff Deal Welcomed\",\"PublishDate\":\"\\/Date(1357126080000)\\/\"},{\"StoryId\":1528582,\"Headline\":\"U.S. Stock Futures Soar on Fiscal-cliff News; ISM ahead\",\"PublishDate\":\"\\/Date(1357125780000)\\/\"},{\"StoryId\":1528579,\"Headline\":\"Crude Prices Up After Congress Deal on US Budget\",\"PublishDate\":\"\\/Date(1357124700000)\\/\"},{\"StoryId\":1528578,\"Headline\":\"Germany's Bavaria Dec CPI +0.9% On Mo; +2.2% On Year\",\"PublishDate\":\"\\/Date(1357124400000)\\/\"},{\"StoryId\":1528577,\"Headline\":\"Germany Kicks Off 2013 EMU Bond Sales, Schatz Yield Positive\",\"PublishDate\":\"\\/Date(1357124340000)\\/\"},{\"StoryId\":1528575,\"Headline\":\"Dollar Middle Rates At 1100 GMT For The SDR\",\"PublishDate\":\"\\/Date(1357124220000)\\/\"},{\"StoryId\":1528567,\"Headline\":\"Spanish and Italian Government Bonds Boosted by US Debt Deal\",\"PublishDate\":\"\\/Date(1357123080000)\\/\"},{\"StoryId\":1528560,\"Headline\":\"Germany Baden-Wuerttemberg Dec CPI +1.0% MM; +1.9% YY\",\"PublishDate\":\"\\/Date(1357122600000)\\/\"},{\"StoryId\":1528559,\"Headline\":\"ECB Allots $1.84 Billion In USD Operations\",\"PublishDate\":\"\\/Date(1357122360000)\\/\"},{\"StoryId\":1528557,\"Headline\":\"Euro Interbank Offered Rates Fixing (Euribor)\",\"PublishDate\":\"\\/Date(1357121700000)\\/\"},{\"StoryId\":1528556,\"Headline\":\"Sterling Index At 1000 GMT\",\"PublishDate\":\"\\/Date(1357121640000)\\/\"},{\"StoryId\":1528555,\"Headline\":\"Sterling Index At 1000 GMT\",\"PublishDate\":\"\\/Date(1357121460000)\\/\"},{\"StoryId\":1528554,\"Headline\":\"Sterling Index At 1000 GMT\",\"PublishDate\":\"\\/Date(1357121340000)\\/\"},{\"StoryId\":1528551,\"Headline\":\"London Shares Maintain Hefty Gains as PMI Data Impress\",\"PublishDate\":\"\\/Date(1357121040000)\\/\"},{\"StoryId\":1528550,\"Headline\":\"Sterling Index At 1000 GMT\",\"PublishDate\":\"\\/Date(1357120980000)\\/\"},{\"StoryId\":1528545,\"Headline\":\"German N Rhine Westphalia Dec CPI +0.9% MM; +2.1% YY\",\"PublishDate\":\"\\/Date(1357120800000)\\/\"},{\"StoryId\":1528544,\"Headline\":\"Euro-Zone Manufacturing Shrinks in December\",\"PublishDate\":\"\\/Date(1357120500000)\\/\"},{\"StoryId\":1528543,\"Headline\":\"MARKET COMMENT: London Stocks Maintain Strong Gains\",\"PublishDate\":\"\\/Date(1357120320000)\\/\"},{\"StoryId\":1528540,\"Headline\":\"Early Winter Puts Chill on Austrian Labor Market in December\",\"PublishDate\":\"\\/Date(1357119780000)\\/\"},{\"StoryId\":1528539,\"Headline\":\"Euro-Zone Manufacturing Shrinks in December\",\"PublishDate\":\"\\/Date(1357119660000)\\/\"},{\"StoryId\":1528538,\"Headline\":\"Sterling Index At 1000 GMT\",\"PublishDate\":\"\\/Date(1357119180000)\\/\"},{\"StoryId\":1528537,\"Headline\":\"UK Nov Mfg PMI Was 49.2\",\"PublishDate\":\"\\/Date(1357118940000)\\/\"},{\"StoryId\":1528536,\"Headline\":\"UK Dec Mfg PMI Forecast At 49.2\",\"PublishDate\":\"\\/Date(1357118940000)\\/\"},{\"StoryId\":1528535,\"Headline\":\"UK Dec Mfg PMI 51.4 - CNBC\",\"PublishDate\":\"\\/Date(1357118940000)\\/\"},{\"StoryId\":1528534,\"Headline\":\"Early Winter Puts Chill on Austrian Labor Market in December\",\"PublishDate\":\"\\/Date(1357118880000)\\/\"},{\"StoryId\":1528533,\"Headline\":\"Euro-Zone Manufacturing Shrinks in December\",\"PublishDate\":\"\\/Date(1357118760000)\\/\"},{\"StoryId\":1528532,\"Headline\":\"Turkey's Exports Rise 12.6% On Year To $151.9B - Minister\",\"PublishDate\":\"\\/Date(1357118520000)\\/\"},{\"StoryId\":1528530,\"Headline\":\"Euro-Zone Nov Mfg PMI Was 46.2\",\"PublishDate\":\"\\/Date(1357117260000)\\/\"},{\"StoryId\":1528529,\"Headline\":\"Euro-Zone Dec Mfg PMI Forecast At 46.3\",\"PublishDate\":\"\\/Date(1357117200000)\\/\"},{\"StoryId\":1528528,\"Headline\":\"Euro-Zone Dec Mfg PMI 46.1\",\"PublishDate\":\"\\/Date(1357117200000)\\/\"},{\"StoryId\":1528527,\"Headline\":\"German Brandenburg Dec CPI +1.0% On Mo, +1.9% On Year\",\"PublishDate\":\"\\/Date(1357117200000)\\/\"},{\"StoryId\":1528525,\"Headline\":\"German Nov Mfg PMI Was 46.8\",\"PublishDate\":\"\\/Date(1357116840000)\\/\"},{\"StoryId\":1528524,\"Headline\":\"German Dec Mfg PMI Forecast At 46.3\",\"PublishDate\":\"\\/Date(1357116840000)\\/\"},{\"StoryId\":1528523,\"Headline\":\"German Dec Mfg PMI 46.0 - CNBC\",\"PublishDate\":\"\\/Date(1357116840000)\\/\"},{\"StoryId\":1528520,\"Headline\":\"French Nov Mfg PMI Was 44.5\",\"PublishDate\":\"\\/Date(1357116660000)\\/\"},{\"StoryId\":1528519,\"Headline\":\"French Dec Mfg PMI Forecast At 44.6\",\"PublishDate\":\"\\/Date(1357116600000)\\/\"},{\"StoryId\":1528518,\"Headline\":\"French Dec Mfg PMI 44.6\",\"PublishDate\":\"\\/Date(1357116600000)\\/\"},{\"StoryId\":1528515,\"Headline\":\"Austrian December Unemployment Rate 8.6%\",\"PublishDate\":\"\\/Date(1357116420000)\\/\"},{\"StoryId\":1528514,\"Headline\":\"Italian Nov Mfg PMI Was 45.1\",\"PublishDate\":\"\\/Date(1357116360000)\\/\"},{\"StoryId\":1528513,\"Headline\":\"Italian Dec Mfg PMI Forecast At 45.3\",\"PublishDate\":\"\\/Date(1357116360000)\\/\"},{\"StoryId\":1528512,\"Headline\":\"Italian Dec Mfg PMI 46.7\",\"PublishDate\":\"\\/Date(1357116360000)\\/\"},{\"StoryId\":1528511,\"Headline\":\"Number of Austrian Unemployed in December Up 6.0% On The Year\",\"PublishDate\":\"\\/Date(1357116240000)\\/\"},{\"StoryId\":1528510,\"Headline\":\"European Stocks, Euro Rally on Fiscal Cliff Relief\",\"PublishDate\":\"\\/Date(1357116120000)\\/\"},{\"StoryId\":1528509,\"Headline\":\"FTSE Nears 6,000 After U.S. Reaches Cliff Deal\",\"PublishDate\":\"\\/Date(1357116000000)\\/\"},{\"StoryId\":1528493,\"Headline\":\"Indonesian Foreign Reserves at $112.8 Bln End Dec Vs $111.29 End Nov\",\"PublishDate\":\"\\/Date(1357114380000)\\/\"},{\"StoryId\":1528492,\"Headline\":\"MARKET COMMENT: London Stocks Kick Off 2013 With Strong Gains\",\"PublishDate\":\"\\/Date(1357114200000)\\/\"},{\"StoryId\":1528488,\"Headline\":\"MARKET TALK: HK Nov Retail Sales Likely +4.4% On-Year - Poll\",\"PublishDate\":\"\\/Date(1357113660000)\\/\"},{\"StoryId\":1528486,\"Headline\":\"Sterling Index At 0800 GMT\",\"PublishDate\":\"\\/Date(1357113600000)\\/\"},{\"StoryId\":1528485,\"Headline\":\"Germany's Saxony Dec CPI +1.0% On Mo, +2.2% On Year\",\"PublishDate\":\"\\/Date(1357113600000)\\/\"},{\"StoryId\":1528484,\"Headline\":\"MARKET COMMENT: Paris Stocks Set To Open Higher\",\"PublishDate\":\"\\/Date(1357113480000)\\/\"},{\"StoryId\":1528482,\"Headline\":\"London Shares Set for Lift as Congress Passes Cliff Deal\",\"PublishDate\":\"\\/Date(1357113360000)\\/\"},{\"StoryId\":1528481,\"Headline\":\"European Stocks Set To Soar\",\"PublishDate\":\"\\/Date(1357113300000)\\/\"},{\"StoryId\":1528480,\"Headline\":\"MARKET COMMENT: Frankfurt Stocks Seen Opening Sharply Higher\",\"PublishDate\":\"\\/Date(1357113120000)\\/\"},{\"StoryId\":1528478,\"Headline\":\"MARKET COMMENT: Nordic Stocks Seen Opening Strong\",\"PublishDate\":\"\\/Date(1357112880000)\\/\"},{\"StoryId\":1528477,\"Headline\":\"Sterling Index At 0800 GMT\",\"PublishDate\":\"\\/Date(1357112340000)\\/\"},{\"StoryId\":1528475,\"Headline\":\"European Stocks Set To Soar On US Budget Compromise\",\"PublishDate\":\"\\/Date(1357112100000)\\/\"},{\"StoryId\":1528474,\"Headline\":\"MARKET COMMENT: London Stocks Seen Up On Fiscal Cliff Bill\",\"PublishDate\":\"\\/Date(1357110060000)\\/\"},{\"StoryId\":1528473,\"Headline\":\"G7 Political, Economic Calendar - Week Ahead -2-\",\"PublishDate\":\"\\/Date(1357109700000)\\/\"},{\"StoryId\":1528472,\"Headline\":\"G7 Political, Economic Calendar - Week Ahead\",\"PublishDate\":\"\\/Date(1357109700000)\\/\"},{\"StoryId\":1528470,\"Headline\":\"Oil Futures Jump as US House Approves Fiscal Cliff Bill\",\"PublishDate\":\"\\/Date(1357108800000)\\/\"},{\"StoryId\":1528469,\"Headline\":\"MARKET TALK: Indonesia Agency Revises Oct Trade Deficit to $1.9B\",\"PublishDate\":\"\\/Date(1357108800000)\\/\"},{\"StoryId\":1528465,\"Headline\":\"UK Economic Data - Recent Indicators\",\"PublishDate\":\"\\/Date(1357107600000)\\/\"},{\"StoryId\":1528459,\"Headline\":\"MARKET TALK: Asian Summary: Stocks Rise As US Fiscal Deal Reached\",\"PublishDate\":\"\\/Date(1357103760000)\\/\"},{\"StoryId\":1528456,\"Headline\":\"MARKET TALK: Thai Dec CPI +3.63% On Yr; Policy Rate Likely On Hold\",\"PublishDate\":\"\\/Date(1357101900000)\\/\"},{\"StoryId\":1528446,\"Headline\":\"CEE MORNING BRIEFING: U.S. Fiscal Cliff Deal in Focus\",\"PublishDate\":\"\\/Date(1357096620000)\\/\"},{\"StoryId\":1528440,\"Headline\":\"Asian Shares Rise; Hong Kong at 19-Month High\",\"PublishDate\":\"\\/Date(1357095300000)\\/\"},{\"StoryId\":1528418,\"Headline\":\"MARKET TALK: Indonesia Inflation Likely Picked Up in Dec - Poll\",\"PublishDate\":\"\\/Date(1357088400000)\\/\"},{\"StoryId\":1528417,\"Headline\":\"MARKET TALK: Indonesia Trade Deficit Likely Narrowed In Nov - Poll\",\"PublishDate\":\"\\/Date(1357088400000)\\/\"},{\"StoryId\":1528411,\"Headline\":\"MARKET TALK: Singapore May Stay A 'Laggard' In 2013-OCBC\",\"PublishDate\":\"\\/Date(1357085820000)\\/\"},{\"StoryId\":1528409,\"Headline\":\"MARKET TALK: Singapore Avoids Recession, But Economy Stays Weak\",\"PublishDate\":\"\\/Date(1357084860000)\\/\"},{\"StoryId\":1528405,\"Headline\":\"MARKET TALK: Asia Outlook: Stocks Biased Up; Fiscal Cliff Eyed\",\"PublishDate\":\"\\/Date(1357080240000)\\/\"},{\"StoryId\":1528395,\"Headline\":\"DJ British Bankers Association Libor Rates\",\"PublishDate\":\"\\/Date(1357059600000)\\/\"},{\"StoryId\":1528394,\"Headline\":\"DJ British Bankers Association Libor Rates For Euros\",\"PublishDate\":\"\\/Date(1357059600000)\\/\"},{\"StoryId\":1528393,\"Headline\":\"DJ British Bankers Association Libor Rates For Dollars\",\"PublishDate\":\"\\/Date(1357059600000)\\/\"},{\"StoryId\":1528391,\"Headline\":\"Late Spot Sterling Rates In London\",\"PublishDate\":\"\\/Date(1357056000000)\\/\"},{\"StoryId\":1528386,\"Headline\":\"Russian Central Bank Ruble Rate RUB40.2286 To Euro vs RUB40.2890\",\"PublishDate\":\"\\/Date(1357044360000)\\/\"},{\"StoryId\":1528385,\"Headline\":\"Russian Central Bank Ruble Rate RUB30.3727 To Dollar vs RUB30.5515\",\"PublishDate\":\"\\/Date(1357044360000)\\/\"},{\"StoryId\":1528383,\"Headline\":\"National Bank Of Poland Zloty Exchange Rates\",\"PublishDate\":\"\\/Date(1357042500000)\\/\"},{\"StoryId\":1528377,\"Headline\":\"Euro Interbank Offered Rates Fixing (Euribor)\",\"PublishDate\":\"\\/Date(1357035300000)\\/\"},{\"StoryId\":1528357,\"Headline\":\"China Official December Manufacturing PMI 50.6, Unchanged From November\",\"PublishDate\":\"\\/Date(1357002840000)\\/\"},{\"StoryId\":1528341,\"Headline\":\"Bailout Candidate Cyprus Slams Euro-Zone Austerity Measures\",\"PublishDate\":\"\\/Date(1356993540000)\\/\"},{\"StoryId\":1528334,\"Headline\":\"MARKET TALK: China Official Dec PMI Likely Higher At 51 - Poll\",\"PublishDate\":\"\\/Date(1356991200000)\\/\"},{\"StoryId\":1528333,\"Headline\":\"UPDATE: Mexico Stocks End Nearly Unchanged After Strong Yearly Gains\",\"PublishDate\":\"\\/Date(1356990720000)\\/\"},{\"StoryId\":1528331,\"Headline\":\"Mexico Stocks End Nearly Unchanged After Strong Yearly Gains\",\"PublishDate\":\"\\/Date(1356990000000)\\/\"},{\"StoryId\":1528323,\"Headline\":\"G7 Political, Economic Calendar - Week Ahead -2-\",\"PublishDate\":\"\\/Date(1356987960000)\\/\"},{\"StoryId\":1528322,\"Headline\":\"G7 Political, Economic Calendar - Week Ahead\",\"PublishDate\":\"\\/Date(1356987960000)\\/\"},{\"StoryId\":1528310,\"Headline\":\"Mexico's Peso Closes Stronger on U.S. Budget Deal Hopes\",\"PublishDate\":\"\\/Date(1356984600000)\\/\"},{\"StoryId\":1528309,\"Headline\":\"TIP SHEET: Brown Advisory Small-Cap Fund Looks for M&A Targets\",\"PublishDate\":\"\\/Date(1356984000000)\\/\"},{\"StoryId\":1528291,\"Headline\":\"Economic Sentiment Indicator Enters 2013 with Mood Weak\",\"PublishDate\":\"\\/Date(1356979500000)\\/\"},{\"StoryId\":1528290,\"Headline\":\"Peru's Main Stock Index Ends Higher; Sol Market Closed\",\"PublishDate\":\"\\/Date(1356979200000)\\/\"},{\"StoryId\":1528289,\"Headline\":\"Economic Sentiment Indicator Enters 2013 With Underlying Mood Weak\",\"PublishDate\":\"\\/Date(1356977700000)\\/\"},{\"StoryId\":1528285,\"Headline\":\"DJ Economic Sentiment Indicator Enters 2013 With Underlying Mood Weak\",\"PublishDate\":\"\\/Date(1356976800000)\\/\"},{\"StoryId\":1528284,\"Headline\":\"DJ Economic Sentiment Indicator Shows Underlying Mood Weak\",\"PublishDate\":\"\\/Date(1356976800000)\\/\"},{\"StoryId\":1528282,\"Headline\":\"Dow Jones Economic Sentiment Indicator Dec 46.2 Vs Nov 47.0\",\"PublishDate\":\"\\/Date(1356976800000)\\/\"}]}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 277,
+            "bodySize": 12263,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 0,
+            "wait": 557,
+            "receive": 0,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "20962",
+          "comment": null
+        },
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:52:16.0079009-07:00",
+          "time": 518,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/news/dj/1528593",
+            "method": "GET",
+            "url": "http://ciapi.cityindex.com/tradingapi/news/dj/1528593",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "UserName",
+                "value": "XX442153",
+                "comment": null
+              },
+              {
+                "name": "Session",
+                "value": "7fa418ab-a3f1-43ac-931c-9e77d16b3ada",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [],
+            "postData": null,
+            "headersSize": 251,
+            "bodySize": 0,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:52:15 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "7996",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 7996,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"NewsDetail\":{\"Story\":\"\\n \\nWednesday, January 2, 2013                                     Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  POL  Dec     Poland Manufacturing PMI \\n                                PMI, Mfg \\n0930/0830/0330  CZE  Dec     Czech Republic Manufacturing PMI \\n    N/A         POL  Q3      Quarterly Balance of Payments \\n \\nThursday, January 3, 2013                                      Exp        Prev \\n Local/GMT/ET \\n    N/A         RUS          Weekly International Reserves \\n                                Gold, Forex Reserves, USD                 532B \\n \\nFriday, January 4, 2013                                        Exp        Prev \\n Local/GMT/ET \\n1000/0800/0300  ROM  Nov     PPI \\n0900/0800/0300  HUN  Nov     Employment & unemployment \\n                                Jobless Rate \\n \\nMonday, January 7, 2013                                        Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  HUN  Nov     PPI \\n0900/0800/0300  CZE  Nov     Industry, Construction \\n                                Indus Output, Y/Y                         +4.1% \\n0900/0800/0300  CZE  Nov     External trade \\n                                Trade Surplus, CZK \\n    N/A         RUS          Russia public holiday - Orthodox Christmas Day \\n    N/A         ROM          National Bank of Romania board meeting & monetary \\n                             policy decision \\n    N/A         RUS          Russia financial markets closed Orthodox Christmas \\n                             holiday \\n \\nTuesday, January 8, 2013                                       Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Nov     Internal trade, incl Wholesale & Retail \\n1000/0800/0300  ROM  Nov     Retail trade \\n0900/0800/0300  HUN  Nov     Preliminary Industrial Production \\n                                Indus Output, M/M \\n                                Indus Output, Y/Y \\n    N/A         POL          Polish Monetary Policy meeting \\n \\nWednesday, January 9, 2013                                     Exp        Prev \\n Local/GMT/ET \\n1000/0800/0300  ROM  Nov     International trade \\n0900/0800/0300  SVK  Nov     Foreign trade \\n0900/0800/0300  HUN  Nov     Preliminary External Trade \\n                                Trade Balance, EUR \\n0900/0800/0300  CZE  Dec     Unemployment data \\n                                Unemployment Rate                         8.7% \\n0900/0800/0300  CZE  Dec     CPI \\n                                CPI, Y/Y                                  +2.7% \\n    N/A         POL          Polish interest rate decision \\n                                Interest Rate \\n \\nThursday, January 10, 2013                                     Exp        Prev \\n Local/GMT/ET \\n1000/0800/0300  ROM  Nov     Industrial production \\n    N/A         RUS          Weekly International Reserves \\n                                Gold, Forex Reserves, USD \\n \\nFriday, January 11, 2013                                       Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Nov     Employment & average monthly wage in selected branches \\n0900/0800/0300  SVK  Nov     Construction production \\n0900/0800/0300  SVK  Nov     Industrial production \\n0900/0800/0300  CZE  Nov     Retail trade \\n                                Retail Sales, M/M \\n                                Retail Sales, Y/Y \\n1000/0800/0300  ROM  Dec     CPI \\n0900/0800/0300  SVK  Nov     Turnover in selected branches of economy, incl \\n                             Industry & Construction \\n1400/1300/0800  POL  Nov     Merchandise trade \\n    N/A         CZE          Czechs vote for president for first time \\n \\nSaturday, January 12, 2013                                     Exp        Prev \\n Local/GMT/ET \\n    N/A         CZE          Czech presidential election, day two \\n \\nMonday, January 14, 2013                                       Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Dec     CPI \\n0900/0800/0300  SVK  Dec     Core & net inflation development \\n0900/0800/0300  HUN  Nov     Agricultural prices \\n    N/A         POL  Dec     Broad money M3 \\n \\nTuesday, January 15, 2013                                      Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  HUN  Dec     CPI \\n                                CPI, Y/Y                                  +5.2% \\n0900/0800/0300  CZE  Nov     Import & export price indices \\n0900/0800/0300  CZE  Dec     PPI \\n                                PPI, Y/Y                                  +1.6% \\n1400/1300/0800  POL  Dec     CPI \\n                                CPI, M/M                                  +0.1% \\n                                CPI, Y/Y                                  +2.8% \\n \\nWednesday, January 16, 2013                                    Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Dec     Harmonized CPI \\n0900/0800/0300  HUN  Nov     Industry \\n1400/1300/0800  HUN  Dec     National Bank of Hungary Monetary Council meeting \\n                             minutes \\n \\nThursday, January 17, 2013                                     Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Nov     New orders in industry \\n0900/0800/0300  HUN  Nov     Construction \\n    N/A         RUS          OECD Secretary-General Angel Gurria official visit \\n                             to the Russian Federation \\n    N/A         RUS          Weekly International Reserves \\n                                Gold, Forex Reserves, USD \\n \\nFriday, January 18, 2013                                       Exp        Prev \\n Local/GMT/ET \\n1400/1300/0800  POL  Dec     PPI \\n1400/1300/0800  POL  Dec     Average gross wages \\n1400/1300/0800  POL  Dec     Industrial Production Index \\n                                Indus Production, Y/Y                     -0.8% \\n    N/A         POL  Nov     Balance of payments \\n                                Monthly Current Account, EUR              650M \\n \\nMonday, January 21, 2013                                       Exp        Prev \\n Local/GMT/ET \\n1400/1300/0800  POL  Dec     Agricultural prices \\n \\nThursday, January 24, 2013                                     Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  CZE  Jan     Business cycle survey (consumer/business confidence) \\n1000/0900/0400  POL  Dec     Unemployment \\n1000/0900/0400  POL  Dec     Retail Sales \\n                                Retail Sales, Y/Y                         +2.4% \\n    N/A         POL          National Bank of Poland Monetary Policy Council \\n                             meeting minutes \\n    N/A         RUS          Weekly International Reserves \\n                                Gold, Forex Reserves, USD \\n \\nFriday, January 25, 2013                                       Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  HUN  Nov     Retail Sales \\n    N/A         CZE          Czech presidential election, second round \\n \\nSaturday, January 26, 2013                                     Exp        Prev \\n Local/GMT/ET \\n    N/A         CZE          Czech presidential election, second round continues \\n \\nMonday, January 28, 2013                                       Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Dec     PPI \\n \\nTuesday, January 29, 2013                                      Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  HUN  Dec     Employment & unemployment \\n                                Jobless Rate \\n1500/1400/0900  HUN  Jan     Hungarian interest rate decision \\n                                Interest Rate                             5.75% \\n \\nWednesday, January 30, 2013                                    Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Jan     Economic sentiment indicator \\n0900/0800/0300  SVK  Jan     Business tendency survey \\n \\n \\n \\n  (END) Dow Jones Newswires\\n  January 02, 2013 06:46 ET (11:46 GMT)\",\"StoryId\":1528593,\"Headline\":\"Russia and Eastern Europe Political, Economic Calendar - Month Ahead\",\"PublishDate\":\"\\/Date(1357127160000)\\/\"}}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 276,
+            "bodySize": 7996,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 0,
+            "wait": 519,
+            "receive": 0,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "20962",
+          "comment": null
+        },
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:52:16.5749334-07:00",
+          "time": 172,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/session/deleteSession",
+            "method": "POST",
+            "url": "http://ciapi.cityindex.com/tradingapi/session/deleteSession?userName=XX442153&session=7fa418ab-a3f1-43ac-931c-9e77d16b3ada",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "comment": null
+              },
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "0",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [
+              {
+                "name": "userName",
+                "value": "XX442153",
+                "comment": null
+              },
+              {
+                "name": "session",
+                "value": "7fa418ab-a3f1-43ac-931c-9e77d16b3ada",
+                "comment": null
+              }
+            ],
+            "postData": null,
+            "headersSize": 305,
+            "bodySize": 0,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:52:15 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "18",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 18,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"LoggedOut\":true}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 274,
+            "bodySize": 18,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 0,
+            "wait": 172,
+            "receive": 1,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "20962",
+          "comment": null
+        }
+      ],
+      "comment": null
+    }
+  },
+  {
+    "Id": "CIAPI_INTEGRATION_TEST.HowToUseNews",
+    "Description": null,
+    "OpenForRecording": false,
+    "AllowedIpAddress": null,
+    "Comment": null,
+    "log": {
+      "version": null,
+      "creator": null,
+      "browser": null,
+      "pages": null,
+      "entries": [
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:52:17.3459775-07:00",
+          "time": 522,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/session",
+            "method": "POST",
+            "url": "http://ciapi.cityindex.com/tradingapi/session",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "comment": null
+              },
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "163",
+                "comment": null
+              },
+              {
+                "name": "Expect",
+                "value": "100-continue",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [],
+            "postData": {
+              "mimeType": "application/json",
+              "params": null,
+              "text": "{\r\n  \"UserName\": \"XX442153\",\r\n  \"Password\": \"password\",\r\n  \"AppKey\": \"mocument_recording_fixture\",\r\n  \"AppVersion\": \"CIAPI.CS.9.1.0.503\",\r\n  \"AppComments\": null\r\n}",
+              "comment": null
+            },
+            "headersSize": 252,
+            "bodySize": 163,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:52:16 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "111",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 111,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"Session\":\"9c82fc28-e45f-4f04-9ad2-e352a1bbdfdf\",\"PasswordChangeRequired\":true,\"AllowedAccountOperator\":false}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 275,
+            "bodySize": 111,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 1,
+            "wait": 177,
+            "receive": 345,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "20962",
+          "comment": null
+        },
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:52:17.9070096-07:00",
+          "time": 635,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/news/dj/UK",
+            "method": "GET",
+            "url": "http://ciapi.cityindex.com/tradingapi/news/dj/UK?MaxResults=100",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "UserName",
+                "value": "XX442153",
+                "comment": null
+              },
+              {
+                "name": "Session",
+                "value": "9c82fc28-e45f-4f04-9ad2-e352a1bbdfdf",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [
+              {
+                "name": "MaxResults",
+                "value": "100",
+                "comment": null
+              }
+            ],
+            "postData": null,
+            "headersSize": 261,
+            "bodySize": 0,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:52:18 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "12263",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 12263,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"Headlines\":[{\"StoryId\":1528593,\"Headline\":\"Russia and Eastern Europe Political, Economic Calendar - Month Ahead\",\"PublishDate\":\"\\/Date(1357127160000)\\/\"},{\"StoryId\":1528592,\"Headline\":\"UK Political, Economic Calendar - Month Ahead -1\",\"PublishDate\":\"\\/Date(1357127160000)\\/\"},{\"StoryId\":1528591,\"Headline\":\"UK Political, Economic Calendar - Month Ahead\",\"PublishDate\":\"\\/Date(1357127160000)\\/\"},{\"StoryId\":1528590,\"Headline\":\"Germany Kicks Off 2013 EMU Bond Sales, Schatz Yield Positive\",\"PublishDate\":\"\\/Date(1357127100000)\\/\"},{\"StoryId\":1528588,\"Headline\":\"FTSE Sails Past 6,000 Amid Relief Over U.S. Deal\",\"PublishDate\":\"\\/Date(1357126800000)\\/\"},{\"StoryId\":1528587,\"Headline\":\"MARKET COMMENT: London Stocks Push Higher on US Deal\",\"PublishDate\":\"\\/Date(1357126260000)\\/\"},{\"StoryId\":1528585,\"Headline\":\"European Stocks, Euro, Commodities Rally As Fiscal Cliff Deal Welcomed\",\"PublishDate\":\"\\/Date(1357126080000)\\/\"},{\"StoryId\":1528582,\"Headline\":\"U.S. Stock Futures Soar on Fiscal-cliff News; ISM ahead\",\"PublishDate\":\"\\/Date(1357125780000)\\/\"},{\"StoryId\":1528579,\"Headline\":\"Crude Prices Up After Congress Deal on US Budget\",\"PublishDate\":\"\\/Date(1357124700000)\\/\"},{\"StoryId\":1528578,\"Headline\":\"Germany's Bavaria Dec CPI +0.9% On Mo; +2.2% On Year\",\"PublishDate\":\"\\/Date(1357124400000)\\/\"},{\"StoryId\":1528577,\"Headline\":\"Germany Kicks Off 2013 EMU Bond Sales, Schatz Yield Positive\",\"PublishDate\":\"\\/Date(1357124340000)\\/\"},{\"StoryId\":1528575,\"Headline\":\"Dollar Middle Rates At 1100 GMT For The SDR\",\"PublishDate\":\"\\/Date(1357124220000)\\/\"},{\"StoryId\":1528567,\"Headline\":\"Spanish and Italian Government Bonds Boosted by US Debt Deal\",\"PublishDate\":\"\\/Date(1357123080000)\\/\"},{\"StoryId\":1528560,\"Headline\":\"Germany Baden-Wuerttemberg Dec CPI +1.0% MM; +1.9% YY\",\"PublishDate\":\"\\/Date(1357122600000)\\/\"},{\"StoryId\":1528559,\"Headline\":\"ECB Allots $1.84 Billion In USD Operations\",\"PublishDate\":\"\\/Date(1357122360000)\\/\"},{\"StoryId\":1528557,\"Headline\":\"Euro Interbank Offered Rates Fixing (Euribor)\",\"PublishDate\":\"\\/Date(1357121700000)\\/\"},{\"StoryId\":1528556,\"Headline\":\"Sterling Index At 1000 GMT\",\"PublishDate\":\"\\/Date(1357121640000)\\/\"},{\"StoryId\":1528555,\"Headline\":\"Sterling Index At 1000 GMT\",\"PublishDate\":\"\\/Date(1357121460000)\\/\"},{\"StoryId\":1528554,\"Headline\":\"Sterling Index At 1000 GMT\",\"PublishDate\":\"\\/Date(1357121340000)\\/\"},{\"StoryId\":1528551,\"Headline\":\"London Shares Maintain Hefty Gains as PMI Data Impress\",\"PublishDate\":\"\\/Date(1357121040000)\\/\"},{\"StoryId\":1528550,\"Headline\":\"Sterling Index At 1000 GMT\",\"PublishDate\":\"\\/Date(1357120980000)\\/\"},{\"StoryId\":1528545,\"Headline\":\"German N Rhine Westphalia Dec CPI +0.9% MM; +2.1% YY\",\"PublishDate\":\"\\/Date(1357120800000)\\/\"},{\"StoryId\":1528544,\"Headline\":\"Euro-Zone Manufacturing Shrinks in December\",\"PublishDate\":\"\\/Date(1357120500000)\\/\"},{\"StoryId\":1528543,\"Headline\":\"MARKET COMMENT: London Stocks Maintain Strong Gains\",\"PublishDate\":\"\\/Date(1357120320000)\\/\"},{\"StoryId\":1528540,\"Headline\":\"Early Winter Puts Chill on Austrian Labor Market in December\",\"PublishDate\":\"\\/Date(1357119780000)\\/\"},{\"StoryId\":1528539,\"Headline\":\"Euro-Zone Manufacturing Shrinks in December\",\"PublishDate\":\"\\/Date(1357119660000)\\/\"},{\"StoryId\":1528538,\"Headline\":\"Sterling Index At 1000 GMT\",\"PublishDate\":\"\\/Date(1357119180000)\\/\"},{\"StoryId\":1528537,\"Headline\":\"UK Nov Mfg PMI Was 49.2\",\"PublishDate\":\"\\/Date(1357118940000)\\/\"},{\"StoryId\":1528536,\"Headline\":\"UK Dec Mfg PMI Forecast At 49.2\",\"PublishDate\":\"\\/Date(1357118940000)\\/\"},{\"StoryId\":1528535,\"Headline\":\"UK Dec Mfg PMI 51.4 - CNBC\",\"PublishDate\":\"\\/Date(1357118940000)\\/\"},{\"StoryId\":1528534,\"Headline\":\"Early Winter Puts Chill on Austrian Labor Market in December\",\"PublishDate\":\"\\/Date(1357118880000)\\/\"},{\"StoryId\":1528533,\"Headline\":\"Euro-Zone Manufacturing Shrinks in December\",\"PublishDate\":\"\\/Date(1357118760000)\\/\"},{\"StoryId\":1528532,\"Headline\":\"Turkey's Exports Rise 12.6% On Year To $151.9B - Minister\",\"PublishDate\":\"\\/Date(1357118520000)\\/\"},{\"StoryId\":1528530,\"Headline\":\"Euro-Zone Nov Mfg PMI Was 46.2\",\"PublishDate\":\"\\/Date(1357117260000)\\/\"},{\"StoryId\":1528529,\"Headline\":\"Euro-Zone Dec Mfg PMI Forecast At 46.3\",\"PublishDate\":\"\\/Date(1357117200000)\\/\"},{\"StoryId\":1528528,\"Headline\":\"Euro-Zone Dec Mfg PMI 46.1\",\"PublishDate\":\"\\/Date(1357117200000)\\/\"},{\"StoryId\":1528527,\"Headline\":\"German Brandenburg Dec CPI +1.0% On Mo, +1.9% On Year\",\"PublishDate\":\"\\/Date(1357117200000)\\/\"},{\"StoryId\":1528525,\"Headline\":\"German Nov Mfg PMI Was 46.8\",\"PublishDate\":\"\\/Date(1357116840000)\\/\"},{\"StoryId\":1528524,\"Headline\":\"German Dec Mfg PMI Forecast At 46.3\",\"PublishDate\":\"\\/Date(1357116840000)\\/\"},{\"StoryId\":1528523,\"Headline\":\"German Dec Mfg PMI 46.0 - CNBC\",\"PublishDate\":\"\\/Date(1357116840000)\\/\"},{\"StoryId\":1528520,\"Headline\":\"French Nov Mfg PMI Was 44.5\",\"PublishDate\":\"\\/Date(1357116660000)\\/\"},{\"StoryId\":1528519,\"Headline\":\"French Dec Mfg PMI Forecast At 44.6\",\"PublishDate\":\"\\/Date(1357116600000)\\/\"},{\"StoryId\":1528518,\"Headline\":\"French Dec Mfg PMI 44.6\",\"PublishDate\":\"\\/Date(1357116600000)\\/\"},{\"StoryId\":1528515,\"Headline\":\"Austrian December Unemployment Rate 8.6%\",\"PublishDate\":\"\\/Date(1357116420000)\\/\"},{\"StoryId\":1528514,\"Headline\":\"Italian Nov Mfg PMI Was 45.1\",\"PublishDate\":\"\\/Date(1357116360000)\\/\"},{\"StoryId\":1528513,\"Headline\":\"Italian Dec Mfg PMI Forecast At 45.3\",\"PublishDate\":\"\\/Date(1357116360000)\\/\"},{\"StoryId\":1528512,\"Headline\":\"Italian Dec Mfg PMI 46.7\",\"PublishDate\":\"\\/Date(1357116360000)\\/\"},{\"StoryId\":1528511,\"Headline\":\"Number of Austrian Unemployed in December Up 6.0% On The Year\",\"PublishDate\":\"\\/Date(1357116240000)\\/\"},{\"StoryId\":1528510,\"Headline\":\"European Stocks, Euro Rally on Fiscal Cliff Relief\",\"PublishDate\":\"\\/Date(1357116120000)\\/\"},{\"StoryId\":1528509,\"Headline\":\"FTSE Nears 6,000 After U.S. Reaches Cliff Deal\",\"PublishDate\":\"\\/Date(1357116000000)\\/\"},{\"StoryId\":1528493,\"Headline\":\"Indonesian Foreign Reserves at $112.8 Bln End Dec Vs $111.29 End Nov\",\"PublishDate\":\"\\/Date(1357114380000)\\/\"},{\"StoryId\":1528492,\"Headline\":\"MARKET COMMENT: London Stocks Kick Off 2013 With Strong Gains\",\"PublishDate\":\"\\/Date(1357114200000)\\/\"},{\"StoryId\":1528488,\"Headline\":\"MARKET TALK: HK Nov Retail Sales Likely +4.4% On-Year - Poll\",\"PublishDate\":\"\\/Date(1357113660000)\\/\"},{\"StoryId\":1528486,\"Headline\":\"Sterling Index At 0800 GMT\",\"PublishDate\":\"\\/Date(1357113600000)\\/\"},{\"StoryId\":1528485,\"Headline\":\"Germany's Saxony Dec CPI +1.0% On Mo, +2.2% On Year\",\"PublishDate\":\"\\/Date(1357113600000)\\/\"},{\"StoryId\":1528484,\"Headline\":\"MARKET COMMENT: Paris Stocks Set To Open Higher\",\"PublishDate\":\"\\/Date(1357113480000)\\/\"},{\"StoryId\":1528482,\"Headline\":\"London Shares Set for Lift as Congress Passes Cliff Deal\",\"PublishDate\":\"\\/Date(1357113360000)\\/\"},{\"StoryId\":1528481,\"Headline\":\"European Stocks Set To Soar\",\"PublishDate\":\"\\/Date(1357113300000)\\/\"},{\"StoryId\":1528480,\"Headline\":\"MARKET COMMENT: Frankfurt Stocks Seen Opening Sharply Higher\",\"PublishDate\":\"\\/Date(1357113120000)\\/\"},{\"StoryId\":1528478,\"Headline\":\"MARKET COMMENT: Nordic Stocks Seen Opening Strong\",\"PublishDate\":\"\\/Date(1357112880000)\\/\"},{\"StoryId\":1528477,\"Headline\":\"Sterling Index At 0800 GMT\",\"PublishDate\":\"\\/Date(1357112340000)\\/\"},{\"StoryId\":1528475,\"Headline\":\"European Stocks Set To Soar On US Budget Compromise\",\"PublishDate\":\"\\/Date(1357112100000)\\/\"},{\"StoryId\":1528474,\"Headline\":\"MARKET COMMENT: London Stocks Seen Up On Fiscal Cliff Bill\",\"PublishDate\":\"\\/Date(1357110060000)\\/\"},{\"StoryId\":1528473,\"Headline\":\"G7 Political, Economic Calendar - Week Ahead -2-\",\"PublishDate\":\"\\/Date(1357109700000)\\/\"},{\"StoryId\":1528472,\"Headline\":\"G7 Political, Economic Calendar - Week Ahead\",\"PublishDate\":\"\\/Date(1357109700000)\\/\"},{\"StoryId\":1528470,\"Headline\":\"Oil Futures Jump as US House Approves Fiscal Cliff Bill\",\"PublishDate\":\"\\/Date(1357108800000)\\/\"},{\"StoryId\":1528469,\"Headline\":\"MARKET TALK: Indonesia Agency Revises Oct Trade Deficit to $1.9B\",\"PublishDate\":\"\\/Date(1357108800000)\\/\"},{\"StoryId\":1528465,\"Headline\":\"UK Economic Data - Recent Indicators\",\"PublishDate\":\"\\/Date(1357107600000)\\/\"},{\"StoryId\":1528459,\"Headline\":\"MARKET TALK: Asian Summary: Stocks Rise As US Fiscal Deal Reached\",\"PublishDate\":\"\\/Date(1357103760000)\\/\"},{\"StoryId\":1528456,\"Headline\":\"MARKET TALK: Thai Dec CPI +3.63% On Yr; Policy Rate Likely On Hold\",\"PublishDate\":\"\\/Date(1357101900000)\\/\"},{\"StoryId\":1528446,\"Headline\":\"CEE MORNING BRIEFING: U.S. Fiscal Cliff Deal in Focus\",\"PublishDate\":\"\\/Date(1357096620000)\\/\"},{\"StoryId\":1528440,\"Headline\":\"Asian Shares Rise; Hong Kong at 19-Month High\",\"PublishDate\":\"\\/Date(1357095300000)\\/\"},{\"StoryId\":1528418,\"Headline\":\"MARKET TALK: Indonesia Inflation Likely Picked Up in Dec - Poll\",\"PublishDate\":\"\\/Date(1357088400000)\\/\"},{\"StoryId\":1528417,\"Headline\":\"MARKET TALK: Indonesia Trade Deficit Likely Narrowed In Nov - Poll\",\"PublishDate\":\"\\/Date(1357088400000)\\/\"},{\"StoryId\":1528411,\"Headline\":\"MARKET TALK: Singapore May Stay A 'Laggard' In 2013-OCBC\",\"PublishDate\":\"\\/Date(1357085820000)\\/\"},{\"StoryId\":1528409,\"Headline\":\"MARKET TALK: Singapore Avoids Recession, But Economy Stays Weak\",\"PublishDate\":\"\\/Date(1357084860000)\\/\"},{\"StoryId\":1528405,\"Headline\":\"MARKET TALK: Asia Outlook: Stocks Biased Up; Fiscal Cliff Eyed\",\"PublishDate\":\"\\/Date(1357080240000)\\/\"},{\"StoryId\":1528395,\"Headline\":\"DJ British Bankers Association Libor Rates\",\"PublishDate\":\"\\/Date(1357059600000)\\/\"},{\"StoryId\":1528394,\"Headline\":\"DJ British Bankers Association Libor Rates For Euros\",\"PublishDate\":\"\\/Date(1357059600000)\\/\"},{\"StoryId\":1528393,\"Headline\":\"DJ British Bankers Association Libor Rates For Dollars\",\"PublishDate\":\"\\/Date(1357059600000)\\/\"},{\"StoryId\":1528391,\"Headline\":\"Late Spot Sterling Rates In London\",\"PublishDate\":\"\\/Date(1357056000000)\\/\"},{\"StoryId\":1528386,\"Headline\":\"Russian Central Bank Ruble Rate RUB40.2286 To Euro vs RUB40.2890\",\"PublishDate\":\"\\/Date(1357044360000)\\/\"},{\"StoryId\":1528385,\"Headline\":\"Russian Central Bank Ruble Rate RUB30.3727 To Dollar vs RUB30.5515\",\"PublishDate\":\"\\/Date(1357044360000)\\/\"},{\"StoryId\":1528383,\"Headline\":\"National Bank Of Poland Zloty Exchange Rates\",\"PublishDate\":\"\\/Date(1357042500000)\\/\"},{\"StoryId\":1528377,\"Headline\":\"Euro Interbank Offered Rates Fixing (Euribor)\",\"PublishDate\":\"\\/Date(1357035300000)\\/\"},{\"StoryId\":1528357,\"Headline\":\"China Official December Manufacturing PMI 50.6, Unchanged From November\",\"PublishDate\":\"\\/Date(1357002840000)\\/\"},{\"StoryId\":1528341,\"Headline\":\"Bailout Candidate Cyprus Slams Euro-Zone Austerity Measures\",\"PublishDate\":\"\\/Date(1356993540000)\\/\"},{\"StoryId\":1528334,\"Headline\":\"MARKET TALK: China Official Dec PMI Likely Higher At 51 - Poll\",\"PublishDate\":\"\\/Date(1356991200000)\\/\"},{\"StoryId\":1528333,\"Headline\":\"UPDATE: Mexico Stocks End Nearly Unchanged After Strong Yearly Gains\",\"PublishDate\":\"\\/Date(1356990720000)\\/\"},{\"StoryId\":1528331,\"Headline\":\"Mexico Stocks End Nearly Unchanged After Strong Yearly Gains\",\"PublishDate\":\"\\/Date(1356990000000)\\/\"},{\"StoryId\":1528323,\"Headline\":\"G7 Political, Economic Calendar - Week Ahead -2-\",\"PublishDate\":\"\\/Date(1356987960000)\\/\"},{\"StoryId\":1528322,\"Headline\":\"G7 Political, Economic Calendar - Week Ahead\",\"PublishDate\":\"\\/Date(1356987960000)\\/\"},{\"StoryId\":1528310,\"Headline\":\"Mexico's Peso Closes Stronger on U.S. Budget Deal Hopes\",\"PublishDate\":\"\\/Date(1356984600000)\\/\"},{\"StoryId\":1528309,\"Headline\":\"TIP SHEET: Brown Advisory Small-Cap Fund Looks for M&A Targets\",\"PublishDate\":\"\\/Date(1356984000000)\\/\"},{\"StoryId\":1528291,\"Headline\":\"Economic Sentiment Indicator Enters 2013 with Mood Weak\",\"PublishDate\":\"\\/Date(1356979500000)\\/\"},{\"StoryId\":1528290,\"Headline\":\"Peru's Main Stock Index Ends Higher; Sol Market Closed\",\"PublishDate\":\"\\/Date(1356979200000)\\/\"},{\"StoryId\":1528289,\"Headline\":\"Economic Sentiment Indicator Enters 2013 With Underlying Mood Weak\",\"PublishDate\":\"\\/Date(1356977700000)\\/\"},{\"StoryId\":1528285,\"Headline\":\"DJ Economic Sentiment Indicator Enters 2013 With Underlying Mood Weak\",\"PublishDate\":\"\\/Date(1356976800000)\\/\"},{\"StoryId\":1528284,\"Headline\":\"DJ Economic Sentiment Indicator Shows Underlying Mood Weak\",\"PublishDate\":\"\\/Date(1356976800000)\\/\"},{\"StoryId\":1528282,\"Headline\":\"Dow Jones Economic Sentiment Indicator Dec 46.2 Vs Nov 47.0\",\"PublishDate\":\"\\/Date(1356976800000)\\/\"}]}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 277,
+            "bodySize": 12263,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 0,
+            "wait": 636,
+            "receive": 0,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "20962",
+          "comment": null
+        },
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:52:18.5570468-07:00",
+          "time": 528,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/news/dj/1528593",
+            "method": "GET",
+            "url": "http://ciapi.cityindex.com/tradingapi/news/dj/1528593",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "UserName",
+                "value": "XX442153",
+                "comment": null
+              },
+              {
+                "name": "Session",
+                "value": "9c82fc28-e45f-4f04-9ad2-e352a1bbdfdf",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [],
+            "postData": null,
+            "headersSize": 251,
+            "bodySize": 0,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:52:18 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "7996",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 7996,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"NewsDetail\":{\"Story\":\"\\n \\nWednesday, January 2, 2013                                     Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  POL  Dec     Poland Manufacturing PMI \\n                                PMI, Mfg \\n0930/0830/0330  CZE  Dec     Czech Republic Manufacturing PMI \\n    N/A         POL  Q3      Quarterly Balance of Payments \\n \\nThursday, January 3, 2013                                      Exp        Prev \\n Local/GMT/ET \\n    N/A         RUS          Weekly International Reserves \\n                                Gold, Forex Reserves, USD                 532B \\n \\nFriday, January 4, 2013                                        Exp        Prev \\n Local/GMT/ET \\n1000/0800/0300  ROM  Nov     PPI \\n0900/0800/0300  HUN  Nov     Employment & unemployment \\n                                Jobless Rate \\n \\nMonday, January 7, 2013                                        Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  HUN  Nov     PPI \\n0900/0800/0300  CZE  Nov     Industry, Construction \\n                                Indus Output, Y/Y                         +4.1% \\n0900/0800/0300  CZE  Nov     External trade \\n                                Trade Surplus, CZK \\n    N/A         RUS          Russia public holiday - Orthodox Christmas Day \\n    N/A         ROM          National Bank of Romania board meeting & monetary \\n                             policy decision \\n    N/A         RUS          Russia financial markets closed Orthodox Christmas \\n                             holiday \\n \\nTuesday, January 8, 2013                                       Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Nov     Internal trade, incl Wholesale & Retail \\n1000/0800/0300  ROM  Nov     Retail trade \\n0900/0800/0300  HUN  Nov     Preliminary Industrial Production \\n                                Indus Output, M/M \\n                                Indus Output, Y/Y \\n    N/A         POL          Polish Monetary Policy meeting \\n \\nWednesday, January 9, 2013                                     Exp        Prev \\n Local/GMT/ET \\n1000/0800/0300  ROM  Nov     International trade \\n0900/0800/0300  SVK  Nov     Foreign trade \\n0900/0800/0300  HUN  Nov     Preliminary External Trade \\n                                Trade Balance, EUR \\n0900/0800/0300  CZE  Dec     Unemployment data \\n                                Unemployment Rate                         8.7% \\n0900/0800/0300  CZE  Dec     CPI \\n                                CPI, Y/Y                                  +2.7% \\n    N/A         POL          Polish interest rate decision \\n                                Interest Rate \\n \\nThursday, January 10, 2013                                     Exp        Prev \\n Local/GMT/ET \\n1000/0800/0300  ROM  Nov     Industrial production \\n    N/A         RUS          Weekly International Reserves \\n                                Gold, Forex Reserves, USD \\n \\nFriday, January 11, 2013                                       Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Nov     Employment & average monthly wage in selected branches \\n0900/0800/0300  SVK  Nov     Construction production \\n0900/0800/0300  SVK  Nov     Industrial production \\n0900/0800/0300  CZE  Nov     Retail trade \\n                                Retail Sales, M/M \\n                                Retail Sales, Y/Y \\n1000/0800/0300  ROM  Dec     CPI \\n0900/0800/0300  SVK  Nov     Turnover in selected branches of economy, incl \\n                             Industry & Construction \\n1400/1300/0800  POL  Nov     Merchandise trade \\n    N/A         CZE          Czechs vote for president for first time \\n \\nSaturday, January 12, 2013                                     Exp        Prev \\n Local/GMT/ET \\n    N/A         CZE          Czech presidential election, day two \\n \\nMonday, January 14, 2013                                       Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Dec     CPI \\n0900/0800/0300  SVK  Dec     Core & net inflation development \\n0900/0800/0300  HUN  Nov     Agricultural prices \\n    N/A         POL  Dec     Broad money M3 \\n \\nTuesday, January 15, 2013                                      Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  HUN  Dec     CPI \\n                                CPI, Y/Y                                  +5.2% \\n0900/0800/0300  CZE  Nov     Import & export price indices \\n0900/0800/0300  CZE  Dec     PPI \\n                                PPI, Y/Y                                  +1.6% \\n1400/1300/0800  POL  Dec     CPI \\n                                CPI, M/M                                  +0.1% \\n                                CPI, Y/Y                                  +2.8% \\n \\nWednesday, January 16, 2013                                    Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Dec     Harmonized CPI \\n0900/0800/0300  HUN  Nov     Industry \\n1400/1300/0800  HUN  Dec     National Bank of Hungary Monetary Council meeting \\n                             minutes \\n \\nThursday, January 17, 2013                                     Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Nov     New orders in industry \\n0900/0800/0300  HUN  Nov     Construction \\n    N/A         RUS          OECD Secretary-General Angel Gurria official visit \\n                             to the Russian Federation \\n    N/A         RUS          Weekly International Reserves \\n                                Gold, Forex Reserves, USD \\n \\nFriday, January 18, 2013                                       Exp        Prev \\n Local/GMT/ET \\n1400/1300/0800  POL  Dec     PPI \\n1400/1300/0800  POL  Dec     Average gross wages \\n1400/1300/0800  POL  Dec     Industrial Production Index \\n                                Indus Production, Y/Y                     -0.8% \\n    N/A         POL  Nov     Balance of payments \\n                                Monthly Current Account, EUR              650M \\n \\nMonday, January 21, 2013                                       Exp        Prev \\n Local/GMT/ET \\n1400/1300/0800  POL  Dec     Agricultural prices \\n \\nThursday, January 24, 2013                                     Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  CZE  Jan     Business cycle survey (consumer/business confidence) \\n1000/0900/0400  POL  Dec     Unemployment \\n1000/0900/0400  POL  Dec     Retail Sales \\n                                Retail Sales, Y/Y                         +2.4% \\n    N/A         POL          National Bank of Poland Monetary Policy Council \\n                             meeting minutes \\n    N/A         RUS          Weekly International Reserves \\n                                Gold, Forex Reserves, USD \\n \\nFriday, January 25, 2013                                       Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  HUN  Nov     Retail Sales \\n    N/A         CZE          Czech presidential election, second round \\n \\nSaturday, January 26, 2013                                     Exp        Prev \\n Local/GMT/ET \\n    N/A         CZE          Czech presidential election, second round continues \\n \\nMonday, January 28, 2013                                       Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Dec     PPI \\n \\nTuesday, January 29, 2013                                      Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  HUN  Dec     Employment & unemployment \\n                                Jobless Rate \\n1500/1400/0900  HUN  Jan     Hungarian interest rate decision \\n                                Interest Rate                             5.75% \\n \\nWednesday, January 30, 2013                                    Exp        Prev \\n Local/GMT/ET \\n0900/0800/0300  SVK  Jan     Economic sentiment indicator \\n0900/0800/0300  SVK  Jan     Business tendency survey \\n \\n \\n \\n  (END) Dow Jones Newswires\\n  January 02, 2013 06:46 ET (11:46 GMT)\",\"StoryId\":1528593,\"Headline\":\"Russia and Eastern Europe Political, Economic Calendar - Month Ahead\",\"PublishDate\":\"\\/Date(1357127160000)\\/\"}}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 276,
+            "bodySize": 7996,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 0,
+            "wait": 529,
+            "receive": 0,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "20962",
+          "comment": null
+        },
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:52:19.1220791-07:00",
+          "time": 195,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/session/deleteSession",
+            "method": "POST",
+            "url": "http://ciapi.cityindex.com/tradingapi/session/deleteSession?userName=XX442153&session=9c82fc28-e45f-4f04-9ad2-e352a1bbdfdf",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "comment": null
+              },
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "0",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [
+              {
+                "name": "userName",
+                "value": "XX442153",
+                "comment": null
+              },
+              {
+                "name": "session",
+                "value": "9c82fc28-e45f-4f04-9ad2-e352a1bbdfdf",
+                "comment": null
+              }
+            ],
+            "postData": null,
+            "headersSize": 305,
+            "bodySize": 0,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:52:18 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "18",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 18,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"LoggedOut\":true}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 274,
+            "bodySize": 18,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 0,
+            "wait": 196,
+            "receive": 0,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "20962",
+          "comment": null
+        }
+      ],
+      "comment": null
+    }
+  },
+  {
+    "Id": "CIAPI_INTEGRATION_TEST.ListNewsHeadlinesWithSourceMNIExpectsException",
+    "Description": null,
+    "OpenForRecording": false,
+    "AllowedIpAddress": null,
+    "Comment": null,
+    "log": {
+      "version": null,
+      "creator": null,
+      "browser": null,
+      "pages": null,
+      "entries": [
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:52:19.8731220-07:00",
+          "time": 525,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/session",
+            "method": "POST",
+            "url": "http://ciapi.cityindex.com/tradingapi/session",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "comment": null
+              },
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "163",
+                "comment": null
+              },
+              {
+                "name": "Expect",
+                "value": "100-continue",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [],
+            "postData": {
+              "mimeType": "application/json",
+              "params": null,
+              "text": "{\r\n  \"UserName\": \"XX442153\",\r\n  \"Password\": \"password\",\r\n  \"AppKey\": \"mocument_recording_fixture\",\r\n  \"AppVersion\": \"CIAPI.CS.9.1.0.503\",\r\n  \"AppComments\": null\r\n}",
+              "comment": null
+            },
+            "headersSize": 252,
+            "bodySize": 163,
+            "comment": null
+          },
+          "response": {
+            "status": 200,
+            "statusText": "OK",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "text/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Vary",
+                "value": "Accept-Encoding",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:52:19 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "111",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 111,
+              "compression": 0,
+              "mimeType": "text/json; charset=utf-8",
+              "text": "{\"Session\":\"3a1767be-9877-4f5e-82e2-beb0b4bea1e9\",\"PasswordChangeRequired\":true,\"AllowedAccountOperator\":false}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 275,
+            "bodySize": 111,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 0,
+            "wait": 178,
+            "receive": 348,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "20962",
+          "comment": null
+        },
+        {
+          "pageref": null,
+          "startedDateTime": "2013-01-02T04:52:20.4811568-07:00",
+          "time": 179,
+          "request": {
+            "host": "ciapi.cityindex.com",
+            "path": "/tradingapi/news/MNI/ALL",
+            "method": "GET",
+            "url": "http://ciapi.cityindex.com/tradingapi/news/MNI/ALL?MaxResults=100",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Accept",
+                "value": "text/plain, text/json, application/json",
+                "comment": null
+              },
+              {
+                "name": "User-Agent",
+                "value": "CIAPI.CS.9.1.0.503",
+                "comment": null
+              },
+              {
+                "name": "UserName",
+                "value": "XX442153",
+                "comment": null
+              },
+              {
+                "name": "Session",
+                "value": "3a1767be-9877-4f5e-82e2-beb0b4bea1e9",
+                "comment": null
+              },
+              {
+                "name": "Host",
+                "value": "ciapi.cityindex.com",
+                "comment": null
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip, deflate",
+                "comment": null
+              }
+            ],
+            "queryString": [
+              {
+                "name": "MaxResults",
+                "value": "100",
+                "comment": null
+              }
+            ],
+            "postData": null,
+            "headersSize": 263,
+            "bodySize": 0,
+            "comment": null
+          },
+          "response": {
+            "status": 500,
+            "statusText": "Internal Server Error",
+            "httpVersion": "HTTP/1.1",
+            "cookies": [],
+            "headers": [
+              {
+                "name": "Cache-Control",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Pragma",
+                "value": "no-cache",
+                "comment": null
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json; charset=utf-8",
+                "comment": null
+              },
+              {
+                "name": "Expires",
+                "value": "-1",
+                "comment": null
+              },
+              {
+                "name": "Server",
+                "value": "Microsoft-IIS/7.5",
+                "comment": null
+              },
+              {
+                "name": "X-AspNet-Version",
+                "value": "4.0.30319",
+                "comment": null
+              },
+              {
+                "name": "X-Powered-By",
+                "value": "ASP.NET",
+                "comment": null
+              },
+              {
+                "name": "Date",
+                "value": "Wed, 02 Jan 2013 11:52:20 GMT",
+                "comment": null
+              },
+              {
+                "name": "Content-Length",
+                "value": "76",
+                "comment": null
+              }
+            ],
+            "content": {
+              "size": 76,
+              "compression": 0,
+              "mimeType": "application/json; charset=utf-8",
+              "text": "{\"HttpStatus\":500,\"ErrorMessage\":\"An error has occurred.\",\"ErrorCode\":10000}",
+              "encoding": null,
+              "comment": null
+            },
+            "redirectURL": "",
+            "headersSize": 277,
+            "bodySize": 76,
+            "comment": null
+          },
+          "cache": null,
+          "timings": {
+            "blocked": -1,
+            "dns": 0,
+            "connect": 0,
+            "send": 1,
+            "wait": 179,
+            "receive": 0,
+            "ssl": 0,
+            "comment": null
+          },
+          "serverIPAddress": null,
+          "connection": "20962",
+          "comment": null
+        }
+      ],
+      "comment": null
+    }
+  }
+]
